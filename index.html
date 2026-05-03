@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>명언 터미널</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="terminal-shell" aria-labelledby="app-title">
+      <div class="screen">
+        <div class="scanlines" aria-hidden="true"></div>
+        <div class="phosphor-burn" aria-hidden="true"></div>
+
+        <header class="terminal-header">
+          <div>
+            <p class="boot-label">QUOTE MEMORY BANK 1978</p>
+            <h1 id="app-title">명언 터미널</h1>
+          </div>
+          <div class="terminal-stats" aria-label="데이터 요약">
+            <span>명언 <strong id="quote-count">0</strong></span>
+            <span>언어 <strong id="language-count">0</strong></span>
+          </div>
+        </header>
+
+        <section class="terminal-grid">
+          <article class="output-window" aria-live="polite">
+            <div class="window-title">
+              <span>무작위 명언 출력</span>
+              <span id="terminal-status">준비</span>
+            </div>
+
+            <div class="terminal-line">
+              <span class="prompt">&gt;</span>
+              <span id="typed-command">quote --random --filter=전체</span>
+            </div>
+
+            <div class="quote-output">
+              <p class="quote-text" id="quote-text"></p>
+              <p class="original-text" id="original-text"></p>
+
+              <dl class="meta-list">
+                <div>
+                  <dt>저자</dt>
+                  <dd id="quote-author"></dd>
+                </div>
+                <div>
+                  <dt>생몰년</dt>
+                  <dd id="quote-life"></dd>
+                </div>
+                <div>
+                  <dt>저서명</dt>
+                  <dd id="quote-source"></dd>
+                </div>
+                <div>
+                  <dt>작성시기</dt>
+                  <dd id="quote-period"></dd>
+                </div>
+                <div>
+                  <dt>언어</dt>
+                  <dd id="quote-language"></dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <aside class="control-window" aria-label="터미널 제어판">
+            <div class="window-title">
+              <span>제어판</span>
+              <span>연결됨</span>
+            </div>
+
+            <fieldset class="toggle-panel">
+              <legend>카테고리</legend>
+              <div class="tag-grid" id="tag-grid"></div>
+            </fieldset>
+
+            <div class="button-bank">
+              <button class="terminal-button" id="random-button" type="button">실행</button>
+              <button class="terminal-button" id="previous-button" type="button">이전</button>
+              <button class="terminal-button" id="speak-ko-button" type="button">한글 읽기</button>
+              <button class="terminal-button" id="speak-original-button" type="button">원문 읽기</button>
+              <button class="terminal-button" id="copy-button" type="button">복사</button>
+              <button class="terminal-button" id="reset-button" type="button">초기화</button>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./quotes-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
