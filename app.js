@@ -80,8 +80,12 @@ const readTargets = {
 };
 
 const availableTags = new Set(quotes.flatMap((quote) => quote.tags));
-const tags = categoryOrder.filter((tag) => tag === "전체" || availableTags.has(tag));
-const languages = new Set(quotes.map((quote) => quote.ko.language));
+const orderedTags = categoryOrder.filter((tag) => tag === "전체" || availableTags.has(tag));
+const extraTags = [...availableTags]
+  .filter((tag) => !orderedTags.includes(tag))
+  .sort((a, b) => a.localeCompare(b, "ko"));
+const tags = [...orderedTags, ...extraTags];
+const languages = new Set(quotes.flatMap((quote) => [quote.ko.language, quote.original.language]));
 
 let cachedVoices = [];
 
@@ -380,12 +384,32 @@ function waitForVoices() {
   });
 }
 
-function chooseKoreanVoice(voices) {
-  const koreanVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("ko"));
+const speechLanguageProfiles = [
+  { test: /한국어|korean/i, lang: "ko-KR", name: /heami|yuna|korean/i },
+  { test: /영어|english/i, lang: "en-US", name: /english|samantha|daniel|zira|david/i },
+  { test: /프랑스어|french/i, lang: "fr-FR", name: /french|thomas|amelie|hortense/i },
+  { test: /독일어|german/i, lang: "de-DE", name: /german|anna|katja|markus/i },
+  { test: /러시아어|russian/i, lang: "ru-RU", name: /russian|irina|pavel/i },
+  { test: /고전 중국어|classical chinese/i, lang: "zh-CN", name: /chinese|huihui|kangkang|ting-ting/i },
+  { test: /고대 그리스어|ancient greek/i, lang: "el-GR", name: /greek|helena|nikos/i },
+  { test: /라틴어|latin/i, lang: "it-IT", name: /italian|elsa|cosimo/i },
+  { test: /팔리어|산스크리트|pali|sanskrit/i, lang: "hi-IN", name: /hindi|heera|kalpana/i }
+];
+
+function speechProfileForLanguage(language) {
+  return speechLanguageProfiles.find((profile) => profile.test.test(language)) || speechLanguageProfiles[1];
+}
+
+function chooseVoiceForLanguage(voices, language) {
+  const profile = speechProfileForLanguage(language);
+  const normalizedLang = profile.lang.toLowerCase();
+  const langPrefix = normalizedLang.split("-")[0];
+  const matchingVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith(langPrefix));
+
   return (
-    koreanVoices.find((voice) => voice.lang.toLowerCase() === "ko-kr") ||
-    koreanVoices.find((voice) => /heami|yuna|korean/i.test(voice.name)) ||
-    koreanVoices[0] ||
+    matchingVoices.find((voice) => voice.lang.toLowerCase() === normalizedLang) ||
+    matchingVoices.find((voice) => profile.name.test(voice.name)) ||
+    matchingVoices[0] ||
     null
   );
 }
@@ -414,16 +438,18 @@ async function speakQuote(mode) {
   ];
   const text = parts.map((part) => part.text).join(". ");
   const utterance = new SpeechSynthesisUtterance(`${text}.`);
+  const speechLanguage = mode === "ko" ? "한국어" : data.language;
+  const speechProfile = speechProfileForLanguage(speechLanguage);
 
-  utterance.lang = "ko-KR";
-  utterance.rate = 0.82;
-  utterance.pitch = 0.58;
+  utterance.lang = speechProfile.lang;
+  utterance.rate = mode === "ko" ? 0.82 : 0.88;
+  utterance.pitch = mode === "ko" ? 0.58 : 0.72;
   utterance.volume = 0.92;
 
-  const koreanVoice = chooseKoreanVoice(await waitForVoices());
-  if (koreanVoice) {
-    utterance.voice = koreanVoice;
-    utterance.lang = koreanVoice.lang;
+  const voice = chooseVoiceForLanguage(await waitForVoices(), speechLanguage);
+  if (voice) {
+    utterance.voice = voice;
+    utterance.lang = voice.lang;
   }
 
   const ranges = [];
@@ -528,6 +554,28 @@ function previousQuote() {
   renderQuote(previousIndex);
 }
 
+function copyWithFallback(text) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.setAttribute("readonly", "");
+  textArea.style.position = "fixed";
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.opacity = "0";
+  document.body.append(textArea);
+  textArea.select();
+  textArea.setSelectionRange(0, text.length);
+
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } finally {
+    textArea.remove();
+  }
+
+  return copied;
+}
+
 async function copyQuote() {
   unlockAudio();
   playButtonSound();
@@ -535,9 +583,17 @@ async function copyQuote() {
   const text = `"${quote.ko.quote}"\n${quote.original.quote}\n- ${quote.ko.author} / ${quote.original.author}, ${quote.ko.source} / ${quote.original.source}`;
 
   try {
-    await navigator.clipboard.writeText(text);
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else if (!copyWithFallback(text)) {
+      throw new Error("Fallback copy failed");
+    }
     showToast("명언을 복사했습니다.");
   } catch {
+    if (copyWithFallback(text)) {
+      showToast("명언을 복사했습니다.");
+      return;
+    }
     showToast("이 브라우저에서는 복사를 지원하지 않습니다.");
   }
 }
