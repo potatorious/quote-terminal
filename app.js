@@ -49,6 +49,7 @@ const state = {
 const elements = {
   quoteCount: document.querySelector("#quote-count"),
   languageCount: document.querySelector("#language-count"),
+  kstClock: document.querySelector("#kst-clock"),
   quoteText: document.querySelector("#quote-text"),
   originalText: document.querySelector("#original-text"),
   quoteAuthor: document.querySelector("#quote-author"),
@@ -81,12 +82,8 @@ const readTargets = {
   ]
 };
 
-const availableTags = new Set(quotes.flatMap((quote) => quote.tags));
-const orderedTags = categoryOrder.filter((tag) => tag === "전체" || availableTags.has(tag));
-const extraTags = [...availableTags]
-  .filter((tag) => !orderedTags.includes(tag))
-  .sort((a, b) => a.localeCompare(b, "ko"));
-const tags = [...orderedTags, ...extraTags];
+const categorySet = new Set(categoryOrder);
+const tags = categoryOrder;
 const languages = new Set(quotes.flatMap((quote) => [quote.ko.language, quote.original.language]));
 
 let cachedVoices = [];
@@ -123,17 +120,18 @@ function setupAudio() {
   return state.audio;
 }
 
-function unlockAudio() {
+async function unlockAudio() {
   const audio = setupAudio();
   if (!audio) {
-    return;
+    return false;
   }
 
   if (audio.state === "suspended") {
-    audio.resume();
+    await audio.resume();
   }
 
-  state.audioReady = true;
+  state.audioReady = audio.state === "running";
+  return state.audioReady;
 }
 
 function playTone({ frequency = 620, duration = 0.025, gain = 0.035 } = {}) {
@@ -197,7 +195,7 @@ function filteredQuotes() {
     return quotes;
   }
 
-  return quotes.filter((quote) => selected.some((tag) => quote.tags.includes(tag)));
+  return quotes.filter((quote) => selected.some((tag) => quote.tags.includes(tag) && categorySet.has(tag)));
 }
 
 function pickRandomIndex() {
@@ -224,6 +222,35 @@ function filterText() {
 
 function updateCommand() {
   elements.typedCommand.textContent = `quote --random --filter=${filterText()}`;
+}
+
+function formatKoreanTime(date) {
+  const parts = new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23"
+  })
+    .formatToParts(date)
+    .reduce((result, part) => {
+      if (part.type !== "literal") {
+        result[part.type] = part.value;
+      }
+      return result;
+    }, {});
+
+  return `${parts.year}.${parts.month}.${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
+}
+
+function updateKoreanClock() {
+  const now = new Date();
+  const text = formatKoreanTime(now);
+  elements.kstClock.textContent = `KST ${text}`;
+  elements.kstClock.dateTime = now.toISOString();
 }
 
 function typeText(text, onComplete) {
@@ -444,7 +471,7 @@ function chooseVoiceForLanguage(voices, language) {
 }
 
 async function speakQuote(mode) {
-  unlockAudio();
+  await unlockAudio();
   playSpeechStartSound();
 
   if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
@@ -571,8 +598,8 @@ function renderTags() {
     name.className = "tag-name";
     name.textContent = tag;
 
-    input.addEventListener("change", () => {
-      unlockAudio();
+    input.addEventListener("change", async () => {
+      await unlockAudio();
       playToggleSound(input.checked);
 
       if (tag === "전체") {
@@ -600,15 +627,15 @@ function showToast(message) {
   window.setTimeout(() => elements.toast.classList.remove("is-visible"), 1500);
 }
 
-function nextQuote() {
-  unlockAudio();
+async function nextQuote() {
+  await unlockAudio();
   playButtonSound();
   state.history.push(state.currentIndex);
   renderQuote(pickRandomIndex());
 }
 
-function previousQuote() {
-  unlockAudio();
+async function previousQuote() {
+  await unlockAudio();
   playButtonSound();
   const previousIndex = state.history.pop();
   if (previousIndex === undefined) {
@@ -642,7 +669,7 @@ function copyWithFallback(text) {
 }
 
 async function copyQuote() {
-  unlockAudio();
+  await unlockAudio();
   playButtonSound();
   const quote = quotes[state.currentIndex];
   const text = `"${quote.ko.quote}"\n${quote.original.quote}\n- ${quote.ko.author} / ${quote.original.author}, ${quote.ko.source} / ${quote.original.source}`;
@@ -665,13 +692,15 @@ async function copyQuote() {
 
 elements.quoteCount.textContent = quotes.length;
 elements.languageCount.textContent = languages.size;
+updateKoreanClock();
+window.setInterval(updateKoreanClock, 1000);
 elements.randomButton.addEventListener("click", nextQuote);
 elements.previousButton.addEventListener("click", previousQuote);
 elements.speakKoButton.addEventListener("click", () => speakQuote("ko"));
 elements.speakOriginalButton.addEventListener("click", () => speakQuote("original"));
 elements.copyButton.addEventListener("click", copyQuote);
-elements.resetButton.addEventListener("click", () => {
-  unlockAudio();
+elements.resetButton.addEventListener("click", async () => {
+  await unlockAudio();
   playButtonSound();
   state.activeTags = new Set(["전체"]);
   renderTags();
