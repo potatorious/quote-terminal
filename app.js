@@ -39,6 +39,8 @@ const state = {
   currentIndex: 0,
   history: [],
   typingTimer: null,
+  readHighlightTimer: null,
+  readSessionId: 0,
   audio: null,
   audioReady: false,
   lastTypeSound: 0
@@ -307,6 +309,11 @@ function ensureQuoteTokens() {
   elements.terminalStatus.textContent = "완료";
 }
 
+function stopReadHighlightTimer() {
+  window.clearTimeout(state.readHighlightTimer);
+  state.readHighlightTimer = null;
+}
+
 function clearReadHighlight() {
   document.querySelectorAll(".is-reading-text").forEach((element) => {
     element.classList.remove("is-reading-text");
@@ -319,6 +326,14 @@ function setReadHighlight(target, tokenIndex = 0) {
   if (element) {
     element.classList.add("is-reading-text");
   }
+  elements.terminalStatus.textContent = `${target.label} 음성`;
+}
+
+function setReadSectionHighlight(target) {
+  clearReadHighlight();
+  document.querySelectorAll(`[data-read='${target.readId}']`).forEach((element) => {
+    element.classList.add("is-reading-text");
+  });
   elements.terminalStatus.textContent = `${target.label} 음성`;
 }
 
@@ -384,9 +399,20 @@ function waitForVoices() {
   });
 }
 
+const speechVoiceSettings = {
+  rate: 0.74,
+  pitch: 0.36,
+  volume: 0.95
+};
+
 const speechLanguageProfiles = [
-  { test: /한국어|korean/i, lang: "ko-KR", name: /heami|yuna|korean/i },
-  { test: /영어|english/i, lang: "en-US", name: /english|samantha|daniel|zira|david/i },
+  { test: /한국어|korean/i, lang: "ko-KR", names: [/heami/i, /yuna/i, /korean/i], name: /heami|yuna|korean/i },
+  {
+    test: /영어|english/i,
+    lang: "en-US",
+    names: [/david/i, /mark/i, /george/i, /desktop/i, /english/i, /zira/i, /daniel/i, /samantha/i],
+    name: /english|samantha|daniel|zira|david/i
+  },
   { test: /프랑스어|french/i, lang: "fr-FR", name: /french|thomas|amelie|hortense/i },
   { test: /독일어|german/i, lang: "de-DE", name: /german|anna|katja|markus/i },
   { test: /러시아어|russian/i, lang: "ru-RU", name: /russian|irina|pavel/i },
@@ -405,10 +431,13 @@ function chooseVoiceForLanguage(voices, language) {
   const normalizedLang = profile.lang.toLowerCase();
   const langPrefix = normalizedLang.split("-")[0];
   const matchingVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith(langPrefix));
+  const preferredVoice = (profile.names || [profile.name])
+    .map((pattern) => matchingVoices.find((voice) => pattern.test(voice.name)))
+    .find(Boolean);
 
   return (
+    preferredVoice ||
     matchingVoices.find((voice) => voice.lang.toLowerCase() === normalizedLang) ||
-    matchingVoices.find((voice) => profile.name.test(voice.name)) ||
     matchingVoices[0] ||
     null
   );
@@ -423,9 +452,14 @@ async function speakQuote(mode) {
     return;
   }
 
-  if (speechSynthesis.speaking) {
+  state.readSessionId += 1;
+  const readSessionId = state.readSessionId;
+
+  if (speechSynthesis.speaking || speechSynthesis.pending) {
     speechSynthesis.cancel();
   }
+  stopReadHighlightTimer();
+  clearReadHighlight();
 
   const quote = quotes[state.currentIndex];
   const data = quote[mode];
@@ -436,54 +470,85 @@ async function speakQuote(mode) {
     { key: "author", text: data.author },
     { key: "source", text: data.source }
   ];
-  const text = parts.map((part) => part.text).join(". ");
-  const utterance = new SpeechSynthesisUtterance(`${text}.`);
-  const speechLanguage = mode === "ko" ? "한국어" : data.language;
+  const speechLanguage = mode === "ko" ? "한국어" : "English";
   const speechProfile = speechProfileForLanguage(speechLanguage);
-
-  utterance.lang = speechProfile.lang;
-  utterance.rate = mode === "ko" ? 0.82 : 0.88;
-  utterance.pitch = mode === "ko" ? 0.58 : 0.72;
-  utterance.volume = 0.92;
-
   const voice = chooseVoiceForLanguage(await waitForVoices(), speechLanguage);
-  if (voice) {
-    utterance.voice = voice;
-    utterance.lang = voice.lang;
+
+  function configureUtterance(utterance) {
+    utterance.lang = voice?.lang || speechProfile.lang;
+    utterance.rate = speechVoiceSettings.rate;
+    utterance.pitch = speechVoiceSettings.pitch;
+    utterance.volume = speechVoiceSettings.volume;
+
+    if (voice) {
+      utterance.voice = voice;
+    }
   }
 
-  const ranges = [];
-  let cursor = 0;
-  parts.forEach((part) => {
-    ranges.push(...tokenRangesForPart(part, cursor));
-    cursor += part.text.length + 2;
-  });
-
-  utterance.onstart = () => {
-    setReadHighlight(readTargets[mode][0], 0);
-  };
-
-  utterance.onboundary = (event) => {
-    const range = ranges.find((item) => event.charIndex >= item.start && event.charIndex <= item.end);
-    const target = readTargets[mode].find((item) => item.key === range?.key);
-    if (target) {
-      setReadHighlight(target, range.tokenIndex);
+  function speakPart(partIndex = 0) {
+    if (readSessionId !== state.readSessionId) {
+      return;
     }
-  };
 
-  utterance.onend = () => {
-    clearReadHighlight();
-    elements.terminalStatus.textContent = "완료";
-    playTone({ frequency: 260, duration: 0.035, gain: 0.028 });
-  };
+    const part = parts[partIndex];
+    if (!part) {
+      stopReadHighlightTimer();
+      clearReadHighlight();
+      elements.terminalStatus.textContent = "완료";
+      playTone({ frequency: 260, duration: 0.035, gain: 0.028 });
+      return;
+    }
 
-  utterance.onerror = () => {
-    clearReadHighlight();
-    elements.terminalStatus.textContent = "완료";
-    showToast("음성 출력을 완료하지 못했습니다.");
-  };
+    const target = readTargets[mode].find((item) => item.key === part.key);
+    const utterance = new SpeechSynthesisUtterance(part.text);
+    let highlightStartedAt = 0;
 
-  window.setTimeout(() => speechSynthesis.speak(utterance), 150);
+    configureUtterance(utterance);
+
+    function showCurrentSection() {
+      if (readSessionId === state.readSessionId && target) {
+        if (!highlightStartedAt) {
+          highlightStartedAt = performance.now();
+        }
+        setReadSectionHighlight(target);
+      }
+    }
+
+    utterance.onstart = () => {
+      showCurrentSection();
+    };
+
+    utterance.onend = () => {
+      if (readSessionId !== state.readSessionId) {
+        return;
+      }
+
+      stopReadHighlightTimer();
+      const minimumVisibleTime = part.key === "quote" ? 700 : 1300;
+      const visibleTime = highlightStartedAt ? performance.now() - highlightStartedAt : 0;
+      const nextDelay = Math.max(260, minimumVisibleTime - visibleTime);
+
+      window.setTimeout(() => {
+        if (readSessionId === state.readSessionId) {
+          speakPart(partIndex + 1);
+        }
+      }, nextDelay);
+    };
+
+    utterance.onerror = () => {
+      stopReadHighlightTimer();
+      clearReadHighlight();
+      elements.terminalStatus.textContent = "완료";
+      showToast("음성 출력을 완료하지 못했습니다.");
+    };
+
+    if (target) {
+      showCurrentSection();
+    }
+    speechSynthesis.speak(utterance);
+  }
+
+  window.setTimeout(() => speakPart(), 150);
 }
 
 function renderTags() {
