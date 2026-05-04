@@ -16,7 +16,7 @@
           <div>
             <p class="boot-label">QUOTE MEMORY BANK 1978</p>
             <h1 id="app-title">명언 터미널</h1>
-            <time class="kst-clock" id="kst-clock" datetime="">KST ----.--.-- --:--:--</time>
+            <time class="kst-clock" id="kst-clock">KST ----.--.-- --:--:--</time>
           </div>
           <div class="terminal-stats" aria-label="데이터 요약">
             <span>명언 <strong id="quote-count">0</strong></span>
@@ -25,10 +25,10 @@
         </header>
 
         <section class="terminal-grid">
-          <article class="output-window" aria-live="polite">
+          <article class="output-window">
             <div class="window-title">
               <span>무작위 명언 출력</span>
-              <span id="terminal-status">준비</span>
+              <span id="terminal-status" role="status" aria-live="polite" aria-atomic="true">준비</span>
             </div>
 
             <div class="terminal-line">
@@ -71,10 +71,13 @@
               <span>연결됨</span>
             </div>
 
-            <fieldset class="toggle-panel">
-              <legend>카테고리</legend>
-              <div class="tag-grid" id="tag-grid"></div>
-            </fieldset>
+            <details class="toggle-panel" open>
+              <summary>카테고리</summary>
+              <fieldset class="tag-fieldset">
+                <legend class="sr-only">카테고리</legend>
+                <div class="tag-grid" id="tag-grid"></div>
+              </fieldset>
+            </details>
 
             <div class="button-bank">
               <button class="terminal-button" id="random-button" type="button">실행</button>

@@ -5,28 +5,34 @@
   --green-dim: #248d35;
   --green-faint: #0d4417;
   --amber: #bfa95e;
-  --font-big: clamp(2.1rem, 5.2vw, 5.4rem);
+  --font-big: 3.8rem;
+  --quote-font-long: 3rem;
+  --quote-font-very-long: 2.35rem;
   --font-small: clamp(0.86rem, 1.08vw, 1rem);
   --gap: 10px;
   --pad: 14px;
   --min-terminal-height: 620px;
+  --min-app-width: 320px;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   width: 100%;
-  height: 100%;
   min-height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
   background: #010201;
 }
 
 body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: visible;
+  background: #010201;
   color: var(--green);
   font-family: "Lucida Console", "Courier New", "D2Coding", monospace;
   font-size: var(--font-small);
@@ -39,10 +45,11 @@ input {
 
 .terminal-shell {
   width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  min-height: var(--min-terminal-height);
-  overflow: hidden;
+  min-width: var(--min-app-width);
+  height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible;
   padding: 8px;
   background:
     repeating-linear-gradient(90deg, rgba(124, 255, 125, 0.018) 0 1px, transparent 1px 10px),
@@ -54,8 +61,9 @@ input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  min-height: 0;
+  height: auto;
+  min-height: calc(100vh - 16px);
+  min-height: calc(100dvh - 16px);
   overflow: hidden;
   padding: var(--pad);
   border: 2px solid var(--green-dim);
@@ -189,6 +197,17 @@ h1 {
 .output-window {
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr);
+  overflow: hidden;
+}
+
+@media (min-width: 701px) {
+  .terminal-shell {
+    min-height: max(100dvh, var(--min-terminal-height));
+  }
+
+  .screen {
+    min-height: calc(max(100dvh, var(--min-terminal-height)) - 16px);
+  }
 }
 
 .window-title {
@@ -214,30 +233,60 @@ h1 {
 
 .prompt,
 .meta-list dt,
-.toggle-panel legend {
+.toggle-panel summary {
   color: var(--amber);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .quote-output {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 24px 38px 22px;
+}
+
+.quote-output::before,
+.quote-output::after {
+  content: "";
+  flex: 1 1 0;
+  min-height: 0;
 }
 
 .quote-text {
   min-height: 0;
+  max-width: 100%;
   margin: 0;
   color: var(--green);
   font-size: var(--font-big);
   font-weight: 700;
-  line-height: 1.16;
+  line-height: 1.24;
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-shadow:
     0 0 2px rgba(124, 255, 125, 0.8),
     0 0 8px rgba(124, 255, 125, 0.28);
+}
+
+.quote-text.is-long {
+  font-size: var(--quote-font-long);
+}
+
+.quote-text.is-very-long {
+  font-size: var(--quote-font-very-long);
 }
 
 .original-text {
@@ -283,11 +332,13 @@ h1 {
 }
 
 .control-window {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .toggle-panel {
+  display: block;
+  flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
   margin: 0;
@@ -295,15 +346,66 @@ h1 {
   border: 0;
 }
 
-.toggle-panel legend {
-  padding: 6px 0 6px;
+.toggle-panel[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.toggle-panel:not([open]) {
+  flex: 0 0 auto;
+}
+
+.toggle-panel summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 28px;
+  padding: 4px 0 8px;
+  cursor: pointer;
   font-weight: 900;
+  list-style: none;
+}
+
+.toggle-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.toggle-panel summary::after {
+  content: "[--]";
+  color: var(--green-soft);
+}
+
+.toggle-panel:not([open]) summary {
+  padding-bottom: 0;
+}
+
+.toggle-panel:not([open]) summary::after {
+  content: "[+]";
+}
+
+.toggle-panel summary:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+  box-shadow: 0 0 10px rgba(191, 169, 94, 0.72);
+}
+
+.tag-fieldset {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+  border: 0;
 }
 
 .tag-grid {
   display: grid;
-  grid-auto-rows: minmax(24px, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(28px, 1fr));
+  gap: 4px 8px;
   height: 100%;
   min-height: 0;
   align-content: stretch;
@@ -318,7 +420,7 @@ h1 {
   gap: 8px;
   align-items: center;
   height: 100%;
-  min-height: 24px;
+  min-height: 28px;
   padding: 0 0 0 2px;
   cursor: pointer;
   color: var(--green);
@@ -353,6 +455,14 @@ h1 {
   background: rgba(124, 255, 125, 0.08);
 }
 
+.tag-toggle input:focus-visible + .switch {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 1px #010201,
+    0 0 10px rgba(191, 169, 94, 0.72);
+}
+
 .tag-toggle input:checked + .switch::after {
   transform: translateX(18px);
   background: var(--green);
@@ -366,6 +476,7 @@ h1 {
 
 .button-bank {
   display: grid;
+  flex: 0 0 auto;
   grid-template-columns: 1fr 1fr;
   gap: 7px;
   padding: var(--gap);
@@ -384,6 +495,14 @@ h1 {
 .terminal-button:hover {
   color: #001902;
   background: var(--green);
+}
+
+.terminal-button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+  box-shadow:
+    inset 0 0 0 1px #010201,
+    0 0 12px rgba(191, 169, 94, 0.74);
 }
 
 .terminal-button:active {
@@ -416,6 +535,7 @@ h1 {
   body {
     height: auto;
     overflow: auto;
+    min-width: var(--min-app-width);
   }
 
   .terminal-shell {
@@ -430,12 +550,12 @@ h1 {
     height: auto;
     min-height: calc(100vh - 12px);
     min-height: calc(100dvh - 12px);
-    overflow: hidden;
+    overflow: visible;
     padding: 10px;
   }
 
   .terminal-header {
-    min-height: 74px;
+    min-height: 0;
     flex-direction: column;
     gap: 8px;
   }
@@ -447,47 +567,73 @@ h1 {
   .terminal-grid {
     flex: 0 0 auto;
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(420px, auto) minmax(230px, auto);
+    grid-template-rows: auto auto;
     min-height: auto;
   }
 
   .quote-output {
-    justify-content: center;
-    padding: 18px;
+    --font-big: 2rem;
+    --quote-font-long: 1.8rem;
+    --quote-font-very-long: 1.6rem;
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .quote-text {
+    line-height: 1.22;
   }
 
   .control-window {
-    min-height: 230px;
-  }
-
-  .tag-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-auto-rows: 34px;
-    align-content: space-between;
-  }
-}
-
-@media (max-height: 620px) and (min-width: 701px) {
-  html,
-  body {
-    height: auto;
-    overflow: auto;
-  }
-
-  .terminal-shell {
-    height: auto;
-    min-height: var(--min-terminal-height);
+    min-height: 0;
     overflow: visible;
   }
 
-  .screen {
-    height: calc(var(--min-terminal-height) - 16px);
+  .terminal-line {
+    flex-wrap: wrap;
+  }
+
+  .tag-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: 32px;
+    height: auto;
+    align-content: start;
+    gap: 6px;
+  }
+
+  .tag-toggle {
+    height: 32px;
+  }
+
+  .tag-fieldset {
+    height: auto;
+  }
+
+  .button-bank {
+    gap: 8px;
   }
 }
 
-@media (max-height: 720px) and (min-width: 701px) {
+@media (max-width: 430px) {
   .quote-output {
-    justify-content: center;
-    overflow: auto;
+    --font-big: 1.75rem;
+    --quote-font-long: 1.6rem;
+    --quote-font-very-long: 1.45rem;
+    padding: 14px;
+  }
+
+  .original-text,
+  .meta-list {
+    line-height: 1.35;
+  }
+
+  .meta-list div {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .tag-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+

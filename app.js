@@ -69,6 +69,12 @@ const elements = {
   typedCommand: document.querySelector("#typed-command")
 };
 
+Object.entries(elements).forEach(([name, element]) => {
+  if (!element) {
+    throw new Error(`Missing required element: ${name}`);
+  }
+});
+
 const readTargets = {
   ko: [
     { key: "quote", label: "명언", readId: "ko-quote" },
@@ -87,6 +93,7 @@ const tags = categoryOrder;
 const languages = new Set(quotes.flatMap((quote) => [quote.ko.language, quote.original.language]));
 
 let cachedVoices = [];
+const quoteScaleClasses = ["is-long", "is-very-long"];
 
 function refreshVoiceCache() {
   if (!("speechSynthesis" in window)) {
@@ -253,6 +260,16 @@ function updateKoreanClock() {
   elements.kstClock.dateTime = now.toISOString();
 }
 
+function stopSpeechOutput() {
+  state.readSessionId += 1;
+  stopReadHighlightTimer();
+  clearReadHighlight();
+
+  if ("speechSynthesis" in window && (speechSynthesis.speaking || speechSynthesis.pending)) {
+    speechSynthesis.cancel();
+  }
+}
+
 function typeText(text, onComplete) {
   window.clearInterval(state.typingTimer);
   elements.quoteText.textContent = "";
@@ -282,6 +299,29 @@ function createReadSpan(text, readId) {
   return span;
 }
 
+function quoteScaleClass(text) {
+  const compactLength = Array.from(text.replace(/\s+/g, "")).length;
+
+  if (compactLength >= 32) {
+    return "is-very-long";
+  }
+
+  if (compactLength >= 20) {
+    return "is-long";
+  }
+
+  return "";
+}
+
+function applyQuoteScale(text) {
+  elements.quoteText.classList.remove(...quoteScaleClasses);
+  const scaleClass = quoteScaleClass(text);
+
+  if (scaleClass) {
+    elements.quoteText.classList.add(scaleClass);
+  }
+}
+
 function createReadTokens(text, readId) {
   const fragment = document.createDocumentFragment();
   const tokens = text.match(/\S+\s*/g) || [text];
@@ -309,9 +349,11 @@ function renderQuote(index) {
     return;
   }
 
+  stopSpeechOutput();
   state.currentIndex = index;
 
   updateCommand();
+  applyQuoteScale(quote.ko.quote);
   typeText(quote.ko.quote, () => {
     elements.quoteText.replaceChildren(createReadTokens(quote.ko.quote, "ko-quote"));
   });
@@ -347,38 +389,12 @@ function clearReadHighlight() {
   });
 }
 
-function setReadHighlight(target, tokenIndex = 0) {
-  clearReadHighlight();
-  const element = document.querySelector(`[data-read='${target.readId}'][data-token-index='${tokenIndex}']`);
-  if (element) {
-    element.classList.add("is-reading-text");
-  }
-  elements.terminalStatus.textContent = `${target.label} 음성`;
-}
-
 function setReadSectionHighlight(target) {
   clearReadHighlight();
   document.querySelectorAll(`[data-read='${target.readId}']`).forEach((element) => {
     element.classList.add("is-reading-text");
   });
   elements.terminalStatus.textContent = `${target.label} 음성`;
-}
-
-function tokenRangesForPart(part, partStart) {
-  const tokens = part.text.match(/\S+\s*/g) || [part.text];
-  let cursor = partStart;
-
-  return tokens.map((token, tokenIndex) => {
-    const start = cursor;
-    const end = cursor + token.trimEnd().length;
-    cursor += token.length;
-    return {
-      key: part.key,
-      tokenIndex,
-      start,
-      end
-    };
-  });
 }
 
 function waitForVoices() {
@@ -479,14 +495,8 @@ async function speakQuote(mode) {
     return;
   }
 
-  state.readSessionId += 1;
+  stopSpeechOutput();
   const readSessionId = state.readSessionId;
-
-  if (speechSynthesis.speaking || speechSynthesis.pending) {
-    speechSynthesis.cancel();
-  }
-  stopReadHighlightTimer();
-  clearReadHighlight();
 
   const quote = quotes[state.currentIndex];
   const data = quote[mode];
@@ -563,6 +573,10 @@ async function speakQuote(mode) {
     };
 
     utterance.onerror = () => {
+      if (readSessionId !== state.readSessionId) {
+        return;
+      }
+
       stopReadHighlightTimer();
       clearReadHighlight();
       elements.terminalStatus.textContent = "완료";
