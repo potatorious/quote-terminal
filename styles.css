@@ -18,10 +18,13 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
-  overflow: hidden;
   background: #010201;
+}
+
+html {
+  overflow: auto;
 }
 
 body {
@@ -36,8 +39,9 @@ input {
 }
 
 .terminal-shell {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 8px;
   background:
     repeating-linear-gradient(90deg, rgba(124, 255, 125, 0.018) 0 1px, transparent 1px 10px),
@@ -47,7 +51,8 @@ input {
 .screen {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 16px);
+  min-height: calc(100dvh - 16px);
   overflow: hidden;
   padding: var(--pad);
   border: 2px solid var(--green-dim);
@@ -105,7 +110,7 @@ input {
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
-  height: 56px;
+  min-height: 56px;
   text-transform: uppercase;
   text-shadow: 0 0 4px rgba(124, 255, 125, 0.42);
 }
@@ -157,8 +162,8 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 248px;
   gap: var(--gap);
-  height: calc(100% - 56px);
-  min-height: 0;
+  min-height: calc(100vh - 88px);
+  min-height: calc(100dvh - 88px);
 }
 
 .output-window,
@@ -399,11 +404,13 @@ h1 {
   }
 
   .screen {
+    min-height: calc(100vh - 12px);
+    min-height: calc(100dvh - 12px);
     padding: 10px;
   }
 
   .terminal-header {
-    height: 74px;
+    min-height: 74px;
     flex-direction: column;
     gap: 8px;
   }
@@ -414,17 +421,29 @@ h1 {
 
   .terminal-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr) 230px;
-    height: calc(100% - 74px);
+    grid-template-rows: minmax(420px, auto) minmax(230px, auto);
+    min-height: auto;
   }
 
   .quote-output {
+    justify-content: flex-start;
     padding: 18px;
+  }
+
+  .control-window {
+    min-height: 230px;
   }
 
   .tag-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-auto-rows: 34px;
     align-content: space-between;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 901px) {
+  .quote-output {
+    justify-content: flex-start;
+    overflow: auto;
   }
 }
