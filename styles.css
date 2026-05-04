@@ -18,13 +18,11 @@
 html,
 body {
   width: 100%;
+  height: 100%;
   min-height: 100%;
   margin: 0;
+  overflow: hidden;
   background: #010201;
-}
-
-html {
-  overflow: auto;
 }
 
 body {
@@ -40,8 +38,9 @@ input {
 
 .terminal-shell {
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   padding: 8px;
   background:
     repeating-linear-gradient(90deg, rgba(124, 255, 125, 0.018) 0 1px, transparent 1px 10px),
@@ -50,9 +49,11 @@ input {
 
 .screen {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  min-height: calc(100vh - 16px);
-  min-height: calc(100dvh - 16px);
+  height: 100%;
+  min-height: 0;
   overflow: hidden;
   padding: var(--pad);
   border: 2px solid var(--green-dim);
@@ -107,10 +108,12 @@ input {
 
 .terminal-header {
   display: flex;
+  flex: 0 0 auto;
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
   min-height: 56px;
+  margin-bottom: var(--gap);
   text-transform: uppercase;
   text-shadow: 0 0 4px rgba(124, 255, 125, 0.42);
 }
@@ -160,10 +163,10 @@ h1 {
 
 .terminal-grid {
   display: grid;
+  flex: 1 1 auto;
   grid-template-columns: minmax(0, 1fr) 248px;
   gap: var(--gap);
-  min-height: calc(100vh - 88px);
-  min-height: calc(100dvh - 88px);
+  min-height: 0;
 }
 
 .output-window,
@@ -289,11 +292,11 @@ h1 {
 
 .tag-grid {
   display: grid;
-  grid-auto-rows: 34px;
-  gap: 0;
+  grid-auto-rows: minmax(24px, 1fr);
+  gap: 2px;
   height: 100%;
   min-height: 0;
-  align-content: space-between;
+  align-content: stretch;
   padding-top: 2px;
   padding-bottom: 2px;
 }
@@ -304,8 +307,8 @@ h1 {
   grid-template-columns: 34px minmax(0, 1fr);
   gap: 8px;
   align-items: center;
-  min-height: 0;
-  height: 34px;
+  height: 100%;
+  min-height: 24px;
   padding: 0 0 0 2px;
   cursor: pointer;
   color: var(--green);
@@ -398,14 +401,26 @@ h1 {
   transform: translate(-50%, 0);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
+  html,
+  body {
+    height: auto;
+    overflow: auto;
+  }
+
   .terminal-shell {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
     padding: 6px;
   }
 
   .screen {
+    height: auto;
     min-height: calc(100vh - 12px);
     min-height: calc(100dvh - 12px);
+    overflow: hidden;
     padding: 10px;
   }
 
@@ -420,13 +435,14 @@ h1 {
   }
 
   .terminal-grid {
+    flex: 0 0 auto;
     grid-template-columns: 1fr;
     grid-template-rows: minmax(420px, auto) minmax(230px, auto);
     min-height: auto;
   }
 
   .quote-output {
-    justify-content: flex-start;
+    justify-content: center;
     padding: 18px;
   }
 
@@ -441,9 +457,9 @@ h1 {
   }
 }
 
-@media (max-height: 720px) and (min-width: 901px) {
+@media (max-height: 720px) and (min-width: 701px) {
   .quote-output {
-    justify-content: flex-start;
+    justify-content: center;
     overflow: auto;
   }
 }
