@@ -36,7 +36,8 @@ const quotes = quoteDataset.quotes.map((entry) => {
 
 const state = {
   activeTags: new Set(["전체"]),
-  currentIndex: 0,
+  currentIndex: -1,
+  hasStarted: false,
   history: [],
   typingTimer: null,
   readHighlightTimer: null,
@@ -94,6 +95,10 @@ const languages = new Set(quotes.flatMap((quote) => [quote.ko.language, quote.or
 
 let cachedVoices = [];
 const quoteScaleClasses = ["is-long", "is-very-long"];
+const startupPrompts = {
+  ko: "실행 키를 눌러 명언 출력을 개시하십시오.",
+  original: "Press execute to initiate quote output."
+};
 
 function refreshVoiceCache() {
   if (!("speechSynthesis" in window)) {
@@ -231,6 +236,32 @@ function updateCommand() {
   elements.typedCommand.textContent = `quote --random --filter=${filterText()}`;
 }
 
+function setWaitingScreen() {
+  window.clearInterval(state.typingTimer);
+  stopSpeechOutput();
+  state.hasStarted = false;
+  state.history = [];
+  state.currentIndex = -1;
+
+  elements.quoteText.classList.remove(...quoteScaleClasses);
+  elements.quoteText.classList.add("startup-message");
+  const cursor = document.createElement("span");
+  cursor.className = "terminal-cursor";
+  cursor.setAttribute("aria-hidden", "true");
+  elements.quoteText.replaceChildren(createReadTokens(startupPrompts.ko, "ko-quote"), cursor);
+
+  elements.originalText.replaceChildren(createReadTokens(startupPrompts.original, "original-quote"));
+  elements.quoteAuthor.textContent = "";
+  elements.quoteLife.textContent = "";
+  elements.quoteSource.textContent = "";
+  elements.quotePeriod.textContent = "";
+  elements.quoteLanguage.textContent = "";
+  elements.originalText.hidden = false;
+  elements.quoteAuthor.closest(".meta-list").hidden = true;
+  elements.terminalStatus.textContent = "대기";
+  updateCommand();
+}
+
 function formatKoreanTime(date) {
   const parts = new Intl.DateTimeFormat("ko-KR", {
     timeZone: "Asia/Seoul",
@@ -350,8 +381,12 @@ function renderQuote(index) {
   }
 
   stopSpeechOutput();
+  state.hasStarted = true;
   state.currentIndex = index;
 
+  elements.quoteText.classList.remove("startup-message");
+  elements.originalText.hidden = false;
+  elements.quoteAuthor.closest(".meta-list").hidden = false;
   updateCommand();
   applyQuoteScale(quote.ko.quote);
   typeText(quote.ko.quote, () => {
@@ -488,25 +523,30 @@ function chooseVoiceForLanguage(voices, language) {
 
 async function speakQuote(mode) {
   await unlockAudio();
-  playSpeechStartSound();
 
   if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
     showToast("이 브라우저에서는 음성 읽기를 지원하지 않습니다.");
     return;
   }
 
+  playSpeechStartSound();
   stopSpeechOutput();
   const readSessionId = state.readSessionId;
 
-  const quote = quotes[state.currentIndex];
-  const data = quote[mode];
-  ensureQuoteTokens();
+  const quote = state.hasStarted ? quotes[state.currentIndex] : null;
+  const data = quote?.[mode];
 
-  const parts = [
-    { key: "quote", text: data.quote },
-    { key: "author", text: data.author },
-    { key: "source", text: data.source }
-  ];
+  if (state.hasStarted) {
+    ensureQuoteTokens();
+  }
+
+  const parts = state.hasStarted
+    ? [
+        { key: "quote", text: data.quote },
+        { key: "author", text: data.author },
+        { key: "source", text: data.source }
+      ]
+    : [{ key: "quote", text: startupPrompts[mode] }];
   const speechLanguage = mode === "ko" ? "한국어" : "English";
   const speechProfile = speechProfileForLanguage(speechLanguage);
   const voice = chooseVoiceForLanguage(await waitForVoices(), speechLanguage);
@@ -644,13 +684,23 @@ function showToast(message) {
 async function nextQuote() {
   await unlockAudio();
   playButtonSound();
-  state.history.push(state.currentIndex);
+
+  if (state.hasStarted) {
+    state.history.push(state.currentIndex);
+  }
+
   renderQuote(pickRandomIndex());
 }
 
 async function previousQuote() {
   await unlockAudio();
   playButtonSound();
+
+  if (!state.hasStarted) {
+    showToast("먼저 실행을 눌러주세요.");
+    return;
+  }
+
   const previousIndex = state.history.pop();
   if (previousIndex === undefined) {
     showToast("이전 명언 기록이 없습니다.");
@@ -685,6 +735,12 @@ function copyWithFallback(text) {
 async function copyQuote() {
   await unlockAudio();
   playButtonSound();
+
+  if (!state.hasStarted) {
+    showToast("먼저 실행을 눌러주세요.");
+    return;
+  }
+
   const quote = quotes[state.currentIndex];
   const text = `"${quote.ko.quote}"\n${quote.original.quote}\n- ${quote.ko.author} / ${quote.original.author}, ${quote.ko.source} / ${quote.original.source}`;
 
@@ -718,7 +774,8 @@ elements.resetButton.addEventListener("click", async () => {
   playButtonSound();
   state.activeTags = new Set(["전체"]);
   renderTags();
+  setWaitingScreen();
 });
 
 renderTags();
-renderQuote(pickRandomIndex());
+setWaitingScreen();

@@ -289,6 +289,38 @@ h1 {
   font-size: var(--quote-font-very-long);
 }
 
+.startup-message {
+  color: var(--green);
+  font-size: var(--quote-font-long);
+  line-height: 1.32;
+  text-shadow:
+    0 0 2px rgba(124, 255, 125, 0.9),
+    0 0 10px rgba(124, 255, 125, 0.34);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 0.62em;
+  height: 0.9em;
+  margin-left: 0.18em;
+  vertical-align: -0.08em;
+  background: var(--green);
+  box-shadow: 0 0 9px rgba(124, 255, 125, 0.78);
+  animation: terminal-cursor-blink 950ms steps(1, end) infinite;
+}
+
+@keyframes terminal-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
 .original-text {
   margin: 0 0 12px;
   padding-top: 10px;
