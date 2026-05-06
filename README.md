@@ -37,7 +37,7 @@
 파일을 내려받은 뒤 `index.html`을 브라우저에서 열면 됩니다.
 
 ```text
-file:///C:/project/index.html
+index.html
 ```
 
 또는 프로젝트 폴더의 `index.html`을 직접 더블클릭해도 됩니다.
