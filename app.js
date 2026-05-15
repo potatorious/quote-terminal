@@ -521,6 +521,10 @@ function chooseVoiceForLanguage(voices, language) {
   );
 }
 
+function normalizeKoreanSpeechText(text) {
+  return text.replace(/(\d+)\s*[:：]\s*(\d+)/g, "$1장 $2절");
+}
+
 async function speakQuote(mode) {
   await unlockAudio();
 
@@ -577,7 +581,8 @@ async function speakQuote(mode) {
     }
 
     const target = readTargets[mode].find((item) => item.key === part.key);
-    const utterance = new SpeechSynthesisUtterance(part.text);
+    const speechText = mode === "ko" ? normalizeKoreanSpeechText(part.text) : part.text;
+    const utterance = new SpeechSynthesisUtterance(speechText);
     let highlightStartedAt = 0;
 
     configureUtterance(utterance);

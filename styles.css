@@ -338,7 +338,7 @@ h1 {
 
 .meta-list div {
   display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
+  grid-template-columns: 94px minmax(0, 1fr);
   gap: 10px;
   padding: 5px 0;
   border-bottom: 1px dotted var(--green-dim);
@@ -660,7 +660,7 @@ h1 {
   }
 
   .meta-list div {
-    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-columns: 88px minmax(0, 1fr);
     gap: 8px;
   }
 
