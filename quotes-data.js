@@ -6251,6 +6251,855 @@ window.QUOTE_DATA = {
         "삶",
         "변화"
       ]
+    },
+    {
+      "authorId": "plato",
+      "ko": {
+        "quote": "철학자들이 왕이 되기 전에는 나라의 악이 끝나지 않는다.",
+        "source": "국가 5권",
+        "period": "기원전 4세기 문헌 / 벤저민 조윗 영어 번역본"
+      },
+      "original": {
+        "quote": "Until philosophers are kings, cities will never have rest from their evils.",
+        "source": "Republic, Book V",
+        "period": "4th-century BCE text / Benjamin Jowett translation"
+      },
+      "tags": [
+        "철학",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "plato",
+      "ko": {
+        "quote": "다스리기를 거부한 가장 큰 벌은 자기보다 못한 사람에게 다스림을 받는 것이다.",
+        "source": "국가 1권",
+        "period": "기원전 4세기 문헌 / 벤저민 조윗 영어 번역본"
+      },
+      "original": {
+        "quote": "The heaviest penalty for declining to rule is to be ruled by someone inferior.",
+        "source": "Republic, Book I",
+        "period": "4th-century BCE text / Benjamin Jowett translation"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "plato",
+      "ko": {
+        "quote": "정의는 자기 일을 하고 남의 일에 참견하지 않는 것이다.",
+        "source": "국가 4권",
+        "period": "기원전 4세기 문헌 / 벤저민 조윗 영어 번역본"
+      },
+      "original": {
+        "quote": "Justice is doing one's own work and not meddling with what is not one's own.",
+        "source": "Republic, Book IV",
+        "period": "4th-century BCE text / Benjamin Jowett translation"
+      },
+      "tags": [
+        "진실",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "plato",
+      "ko": {
+        "quote": "영혼은 저세상으로 갈 때 교육과 길러진 성품만을 가져간다.",
+        "source": "파이돈",
+        "period": "기원전 4세기 문헌 / 벤저민 조윗 영어 번역본"
+      },
+      "original": {
+        "quote": "The soul takes nothing with her to the next world but her education and culture.",
+        "source": "Phaedo",
+        "period": "4th-century BCE text / Benjamin Jowett translation"
+      },
+      "tags": [
+        "삶",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "plato",
+      "ko": {
+        "quote": "선한 사람에게는 살아서도 죽어서도 참된 해가 일어나지 않는다.",
+        "source": "변론",
+        "period": "기원전 4세기 문헌 / 벤저민 조윗 영어 번역본"
+      },
+      "original": {
+        "quote": "No evil can happen to a good man, either in life or after death.",
+        "source": "Apology",
+        "period": "4th-century BCE text / Benjamin Jowett translation"
+      },
+      "tags": [
+        "용기",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "aristotle",
+      "ko": {
+        "quote": "한 마리 제비가 봄을 만들지 않듯 하루가 사람을 행복하게 만들지는 않는다.",
+        "source": "니코마코스 윤리학 1권",
+        "period": "기원전 4세기 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "One swallow does not make a spring, nor does one day.",
+        "source": "Nicomachean Ethics, Book I",
+        "period": "4th-century BCE text / public-domain English translation"
+      },
+      "tags": [
+        "삶",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "aristotle",
+      "ko": {
+        "quote": "탁월함은 선택과 관계된 품성의 상태다.",
+        "source": "니코마코스 윤리학 2권",
+        "period": "기원전 4세기 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Virtue is a state of character concerned with choice.",
+        "source": "Nicomachean Ethics, Book II",
+        "period": "4th-century BCE text / public-domain English translation"
+      },
+      "tags": [
+        "철학",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "aristotle",
+      "ko": {
+        "quote": "인간의 좋음은 덕에 따른 영혼의 활동이다.",
+        "source": "니코마코스 윤리학 1권",
+        "period": "기원전 4세기 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "The good of man is an activity of soul in accordance with virtue.",
+        "source": "Nicomachean Ethics, Book I",
+        "period": "4th-century BCE text / public-domain English translation"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "aristotle",
+      "ko": {
+        "quote": "친구는 또 다른 자신이다.",
+        "source": "니코마코스 윤리학 9권",
+        "period": "기원전 4세기 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "A friend is another self.",
+        "source": "Nicomachean Ethics, Book IX",
+        "period": "4th-century BCE text / public-domain English translation"
+      },
+      "tags": [
+        "관계",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "aristotle",
+      "ko": {
+        "quote": "모든 기술과 탐구는 어떤 선을 목표로 삼는 듯하다.",
+        "source": "니코마코스 윤리학 1권",
+        "period": "기원전 4세기 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Every art and every inquiry, and similarly every action and pursuit, is thought to aim at some good.",
+        "source": "Nicomachean Ethics, Book I",
+        "period": "4th-century BCE text / public-domain English translation"
+      },
+      "tags": [
+        "시작",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "cicero",
+      "ko": {
+        "quote": "우정은 모든 인간적 일과 신적인 일에 대한 일치와 선의와 애정이다.",
+        "source": "우정론",
+        "period": "기원전 1세기 로마 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Friendship is an accord in all things, human and divine, conjoined with mutual goodwill and affection.",
+        "source": "On Friendship",
+        "period": "1st-century BCE Roman text / public-domain English translation"
+      },
+      "tags": [
+        "관계",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "cicero",
+      "ko": {
+        "quote": "운명의 변화는 친구의 믿음직함을 시험한다.",
+        "source": "우정론",
+        "period": "기원전 1세기 로마 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "The shifts of fortune test the reliability of friends.",
+        "source": "On Friendship",
+        "period": "1st-century BCE Roman text / public-domain English translation"
+      },
+      "tags": [
+        "관계",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "cicero",
+      "ko": {
+        "quote": "우리는 우리 자신만을 위해 태어난 것이 아니다.",
+        "source": "의무론 1권",
+        "period": "기원전 1세기 로마 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "We are not born for ourselves alone.",
+        "source": "On Duties, Book I",
+        "period": "1st-century BCE Roman text / public-domain English translation"
+      },
+      "tags": [
+        "관계",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "cicero",
+      "ko": {
+        "quote": "감사는 모든 덕 가운데 가장 클 뿐 아니라 다른 덕들의 어머니다.",
+        "source": "플란키우스 변론",
+        "period": "기원전 1세기 로마 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Gratitude is not only the greatest of virtues, but the parent of all the others.",
+        "source": "Pro Plancio",
+        "period": "1st-century BCE Roman text / public-domain English translation"
+      },
+      "tags": [
+        "삶",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "cicero",
+      "ko": {
+        "quote": "태어나기 전의 일을 모르는 것은 언제나 아이로 남는 것이다.",
+        "source": "연설가",
+        "period": "기원전 1세기 로마 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "To be ignorant of what occurred before you were born is to remain always a child.",
+        "source": "Orator",
+        "period": "1st-century BCE Roman text / public-domain English translation"
+      },
+      "tags": [
+        "지혜",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "pascal",
+      "ko": {
+        "quote": "인간의 모든 존엄은 생각에 있다.",
+        "source": "팡세",
+        "period": "17세기 프랑스 단상집 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "All man's dignity consists in thought.",
+        "source": "Pensees",
+        "period": "17th-century French notes / public-domain English translation"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "pascal",
+      "ko": {
+        "quote": "우리는 진리를 이성만이 아니라 마음으로도 안다.",
+        "source": "팡세",
+        "period": "17세기 프랑스 단상집 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "We know the truth, not only by the reason, but also by the heart.",
+        "source": "Pensees",
+        "period": "17th-century French notes / public-domain English translation"
+      },
+      "tags": [
+        "진실",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "pascal",
+      "ko": {
+        "quote": "인간은 천사도 아니고 짐승도 아니다.",
+        "source": "팡세",
+        "period": "17세기 프랑스 단상집 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Man is neither angel nor beast.",
+        "source": "Pensees",
+        "period": "17th-century French notes / public-domain English translation"
+      },
+      "tags": [
+        "철학",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "pascal",
+      "ko": {
+        "quote": "무한한 공간의 영원한 침묵이 나를 두렵게 한다.",
+        "source": "팡세",
+        "period": "17세기 프랑스 단상집 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "The eternal silence of these infinite spaces frightens me.",
+        "source": "Pensees",
+        "period": "17th-century French notes / public-domain English translation"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "pascal",
+      "ko": {
+        "quote": "호기심은 대개 허영일 뿐이다.",
+        "source": "팡세",
+        "period": "17세기 프랑스 단상집 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Curiosity is only vanity.",
+        "source": "Pensees",
+        "period": "17th-century French notes / public-domain English translation"
+      },
+      "tags": [
+        "진실",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "marcus",
+      "ko": {
+        "quote": "만 년을 살 것처럼 행동하지 말라.",
+        "source": "명상록 4권 17장",
+        "period": "2세기 로마 스토아 문헌 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "Do not act as if thou wert going to live ten thousand years.",
+        "source": "Meditations 4.17",
+        "period": "2nd-century Roman Stoic text / George Long translation"
+      },
+      "tags": [
+        "삶",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "marcus",
+      "ko": {
+        "quote": "사람은 서로를 위해 존재한다.",
+        "source": "명상록 8권 59장",
+        "period": "2세기 로마 스토아 문헌 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "Men exist for the sake of one another.",
+        "source": "Meditations 8.59",
+        "period": "2nd-century Roman Stoic text / George Long translation"
+      },
+      "tags": [
+        "관계",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "marcus",
+      "ko": {
+        "quote": "삶의 기술은 춤보다 씨름에 더 가깝다.",
+        "source": "명상록 7권 61장",
+        "period": "2세기 로마 스토아 문헌 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "The art of life is more like the wrestler's art than the dancer's.",
+        "source": "Meditations 7.61",
+        "period": "2nd-century Roman Stoic text / George Long translation"
+      },
+      "tags": [
+        "삶",
+        "용기"
+      ]
+    },
+    {
+      "authorId": "marcus",
+      "ko": {
+        "quote": "오늘을 마지막 날처럼 살되 침착하고 품위 있게 살아라.",
+        "source": "명상록 7권 69장",
+        "period": "2세기 로마 스토아 문헌 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "Live every day as if it were thy last, without frenzy, without apathy, without pretence.",
+        "source": "Meditations 7.69",
+        "period": "2nd-century Roman Stoic text / George Long translation"
+      },
+      "tags": [
+        "삶",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "marcus",
+      "ko": {
+        "quote": "마음의 지배 능력이 본성에 맞으면 모든 일에 쉽게 적응한다.",
+        "source": "명상록 4권 1장",
+        "period": "2세기 로마 스토아 문헌 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "When the ruling faculty is according to nature, it adapts itself easily to the events which happen.",
+        "source": "Meditations 4.1",
+        "period": "2nd-century Roman Stoic text / George Long translation"
+      },
+      "tags": [
+        "회복",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "seneca",
+      "ko": {
+        "quote": "자연을 따라 살면 결코 가난하지 않고, 의견을 따라 살면 결코 부유하지 않다.",
+        "source": "루킬리우스에게 보낸 편지 16",
+        "period": "1세기 로마 스토아 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "If you live according to nature, you will never be poor; if according to opinion, you will never be rich.",
+        "source": "Moral Letters to Lucilius, letter 16",
+        "period": "1st-century Roman Stoic text / public-domain English translation"
+      },
+      "tags": [
+        "삶",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "seneca",
+      "ko": {
+        "quote": "너를 더 나은 사람으로 만들 사람들과 어울려라.",
+        "source": "루킬리우스에게 보낸 편지 7",
+        "period": "1세기 로마 스토아 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Associate with people who are likely to improve you.",
+        "source": "Moral Letters to Lucilius, letter 7",
+        "period": "1st-century Roman Stoic text / public-domain English translation"
+      },
+      "tags": [
+        "관계",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "seneca",
+      "ko": {
+        "quote": "어느 항구로 가는지 모르는 사람에게는 어떤 바람도 순풍이 아니다.",
+        "source": "루킬리우스에게 보낸 편지 71",
+        "period": "1세기 로마 스토아 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "If one does not know to which port one is sailing, no wind is favorable.",
+        "source": "Moral Letters to Lucilius, letter 71",
+        "period": "1st-century Roman Stoic text / public-domain English translation"
+      },
+      "tags": [
+        "시작",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "seneca",
+      "ko": {
+        "quote": "우리는 날마다 자신을 심문해야 한다.",
+        "source": "분노에 관하여 3권",
+        "period": "1세기 로마 스토아 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "We should every night call ourselves to an account.",
+        "source": "On Anger, Book III",
+        "period": "1st-century Roman Stoic text / public-domain English translation"
+      },
+      "tags": [
+        "진실",
+        "회복"
+      ]
+    },
+    {
+      "authorId": "seneca",
+      "ko": {
+        "quote": "가장 큰 부는 자연의 법에 맞춘 가난이다.",
+        "source": "루킬리우스에게 보낸 편지 4",
+        "period": "1세기 로마 스토아 문헌 / 공개 영역 영어 번역본"
+      },
+      "original": {
+        "quote": "Poverty adjusted to the law of nature is great wealth.",
+        "source": "Moral Letters to Lucilius, letter 4",
+        "period": "1st-century Roman Stoic text / public-domain English translation"
+      },
+      "tags": [
+        "삶",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "epictetus",
+      "ko": {
+        "quote": "자유로운 사람은 자기 자신을 다스리는 사람이다.",
+        "source": "담화록 2권",
+        "period": "2세기 스토아 강의 기록 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "No man is free who is not master of himself.",
+        "source": "Discourses, Book II",
+        "period": "2nd-century Stoic teaching record / George Long translation"
+      },
+      "tags": [
+        "철학",
+        "용기"
+      ]
+    },
+    {
+      "authorId": "epictetus",
+      "ko": {
+        "quote": "자신이 이미 안다고 여기는 것을 배우는 것은 불가능하다.",
+        "source": "담화록 2권",
+        "period": "2세기 스토아 강의 기록 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "It is impossible for a man to learn what he thinks he already knows.",
+        "source": "Discourses, Book II",
+        "period": "2nd-century Stoic teaching record / George Long translation"
+      },
+      "tags": [
+        "지혜",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "epictetus",
+      "ko": {
+        "quote": "대부분 침묵하라. 말해야 할 때에는 필요한 것만 말하라.",
+        "source": "엥케이리디온 33장",
+        "period": "2세기 스토아 강의 기록 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "Be silent for the most part, or speak only what is necessary.",
+        "source": "Enchiridion, chapter 33",
+        "period": "2nd-century Stoic teaching record / George Long translation"
+      },
+      "tags": [
+        "지혜",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "epictetus",
+      "ko": {
+        "quote": "작은 일에서 자신을 단련하고, 거기서 더 큰 일로 나아가라.",
+        "source": "담화록 1권",
+        "period": "2세기 스토아 강의 기록 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "Practice yourself, for heaven's sake, in little things; and thence proceed to greater.",
+        "source": "Discourses, Book I",
+        "period": "2nd-century Stoic teaching record / George Long translation"
+      },
+      "tags": [
+        "시작",
+        "용기"
+      ]
+    },
+    {
+      "authorId": "epictetus",
+      "ko": {
+        "quote": "좋은 사람이 되고 싶다면 먼저 자신에게 부족함이 있음을 인정하라.",
+        "source": "담화록 2권",
+        "period": "2세기 스토아 강의 기록 / 조지 롱 영어 번역본"
+      },
+      "original": {
+        "quote": "If you would be good, first believe that you are bad.",
+        "source": "Discourses, Book II",
+        "period": "2nd-century Stoic teaching record / George Long translation"
+      },
+      "tags": [
+        "진실",
+        "시작"
+      ]
+    },
+    {
+      "authorId": "shakespeare",
+      "ko": {
+        "quote": "음악이 사랑의 양식이라면 계속 연주하라.",
+        "source": "십이야",
+        "period": "1601년경-1602년경"
+      },
+      "original": {
+        "quote": "If music be the food of love, play on.",
+        "source": "Twelfth Night",
+        "period": "c. 1601-1602"
+      },
+      "tags": [
+        "관계",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "shakespeare",
+      "ko": {
+        "quote": "우리는 꿈이 만들어지는 재료와 같은 존재다.",
+        "source": "템페스트",
+        "period": "1611년경"
+      },
+      "original": {
+        "quote": "We are such stuff as dreams are made on.",
+        "source": "The Tempest",
+        "period": "c. 1611"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "shakespeare",
+      "ko": {
+        "quote": "우리 삶의 실은 선과 악이 뒤섞인 실이다.",
+        "source": "끝이 좋으면 다 좋다",
+        "period": "1604년경-1605년경"
+      },
+      "original": {
+        "quote": "The web of our life is of a mingled yarn, good and ill together.",
+        "source": "All's Well That Ends Well",
+        "period": "c. 1604-1605"
+      },
+      "tags": [
+        "삶",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "shakespeare",
+      "ko": {
+        "quote": "작은 촛불이 얼마나 멀리 빛을 던지는가.",
+        "source": "베니스의 상인",
+        "period": "1596년경-1598년경"
+      },
+      "original": {
+        "quote": "How far that little candle throws his beams!",
+        "source": "The Merchant of Venice",
+        "period": "c. 1596-1598"
+      },
+      "tags": [
+        "용기"
+      ]
+    },
+    {
+      "authorId": "shakespeare",
+      "ko": {
+        "quote": "문제는 별에 있는 것이 아니라 우리 자신에게 있다.",
+        "source": "줄리어스 시저",
+        "period": "1599년경"
+      },
+      "original": {
+        "quote": "The fault, dear Brutus, is not in our stars, but in ourselves.",
+        "source": "Julius Caesar",
+        "period": "c. 1599"
+      },
+      "tags": [
+        "진실",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "franklin",
+      "ko": {
+        "quote": "작은 도끼질이 큰 참나무를 쓰러뜨린다.",
+        "source": "가난한 리처드의 연감",
+        "period": "1732년-1758년"
+      },
+      "original": {
+        "quote": "Little strokes fell great oaks.",
+        "source": "Poor Richard's Almanack",
+        "period": "1732-1758"
+      },
+      "tags": [
+        "시작",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "franklin",
+      "ko": {
+        "quote": "오늘 하나는 내일 둘의 가치가 있다.",
+        "source": "가난한 리처드의 연감",
+        "period": "1732년-1758년"
+      },
+      "original": {
+        "quote": "One today is worth two tomorrows.",
+        "source": "Poor Richard's Almanack",
+        "period": "1732-1758"
+      },
+      "tags": [
+        "시작",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "franklin",
+      "ko": {
+        "quote": "인내할 수 있는 사람은 원하는 것을 얻을 수 있다.",
+        "source": "가난한 리처드의 연감",
+        "period": "1732년-1758년"
+      },
+      "original": {
+        "quote": "He that can have patience can have what he will.",
+        "source": "Poor Richard's Almanack",
+        "period": "1732-1758"
+      },
+      "tags": [
+        "회복",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "franklin",
+      "ko": {
+        "quote": "지혜의 문은 결코 닫히지 않는다.",
+        "source": "가난한 리처드의 연감",
+        "period": "1732년-1758년"
+      },
+      "original": {
+        "quote": "The doors of wisdom are never shut.",
+        "source": "Poor Richard's Almanack",
+        "period": "1732-1758"
+      },
+      "tags": [
+        "지혜",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "franklin",
+      "ko": {
+        "quote": "빈 자루는 똑바로 설 수 없다.",
+        "source": "가난한 리처드의 연감",
+        "period": "1732년-1758년"
+      },
+      "original": {
+        "quote": "An empty bag cannot stand upright.",
+        "source": "Poor Richard's Almanack",
+        "period": "1732-1758"
+      },
+      "tags": [
+        "삶",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "laozi",
+      "ko": {
+        "quote": "도는 비어 있으나 써도 차지 않는다.",
+        "source": "도덕경 4장",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
+      },
+      "original": {
+        "quote": "The Dao is empty, and yet it may be used without being filled.",
+        "source": "Dao De Jing, chapter 4",
+        "period": "Warring States period text / James Legge translation"
+      },
+      "tags": [
+        "철학",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "laozi",
+      "ko": {
+        "quote": "도는 영원히 이름이 없다.",
+        "source": "도덕경 32장",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
+      },
+      "original": {
+        "quote": "The Dao, considered as unchanging, has no name.",
+        "source": "Dao De Jing, chapter 32",
+        "period": "Warring States period text / James Legge translation"
+      },
+      "tags": [
+        "철학",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "laozi",
+      "ko": {
+        "quote": "큰 도는 어디에나 흘러간다.",
+        "source": "도덕경 34장",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
+      },
+      "original": {
+        "quote": "All-pervading is the Great Dao.",
+        "source": "Dao De Jing, chapter 34",
+        "period": "Warring States period text / James Legge translation"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "laozi",
+      "ko": {
+        "quote": "도는 늘 무위하지만 하지 않는 일이 없다.",
+        "source": "도덕경 37장",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
+      },
+      "original": {
+        "quote": "The Dao in its regular course does nothing, and so there is nothing which it does not do.",
+        "source": "Dao De Jing, chapter 37",
+        "period": "Warring States period text / James Legge translation"
+      },
+      "tags": [
+        "철학",
+        "변화"
+      ]
+    },
+    {
+      "authorId": "laozi",
+      "ko": {
+        "quote": "아름드리 나무도 작은 싹에서 자란다.",
+        "source": "도덕경 64장",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
+      },
+      "original": {
+        "quote": "The tree which fills the arms grew from the tiniest sprout.",
+        "source": "Dao De Jing, chapter 64",
+        "period": "Warring States period text / James Legge translation"
+      },
+      "tags": [
+        "시작",
+        "변화"
+      ]
     }
   ]
 };
