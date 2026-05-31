@@ -1495,7 +1495,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "shakespeare",
       "ko": {
-        "quote": "준비가 되어 있으면 모든 것이 준비된 것이다.",
+        "quote": "준비가 되어 있다는 것, 그것이 전부다.",
         "source": "햄릿",
         "period": "1600년경-1601년경"
       },
@@ -5933,13 +5933,13 @@ window.QUOTE_DATA = {
       "authorId": "emerson",
       "ko": {
         "quote": "위대한 일은 열정 없이 이루어진 적이 없다.",
-        "source": "원",
-        "period": "1841년-1844년"
+        "source": "수상록: 원",
+        "period": "1841년"
       },
       "original": {
         "quote": "Nothing great was ever achieved without enthusiasm.",
-        "source": "Circles",
-        "period": "1841-1844"
+        "source": "Essays: First Series, Circles",
+        "period": "1841"
       },
       "tags": [
         "시작",
@@ -7240,7 +7240,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "seneca",
       "ko": {
-        "quote": "우리는 배우는 동안 가르친다.",
+        "quote": "우리는 가르치면서 배운다.",
         "source": "루킬리우스에게 보낸 편지 전승",
         "period": "63년경-65년경"
       },
@@ -7614,7 +7614,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "voltaire",
       "ko": {
-        "quote": "기존 권위가 틀린 문제에서 옳다는 것은 위험하다.",
+        "quote": "권위 있는 이들이 틀려 있는 문제에서 옳은 편에 서는 것은 위험하다.",
         "source": "전승 인용",
         "period": "18세기 전승"
       },
@@ -7699,7 +7699,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "pascal",
       "ko": {
-        "quote": "너무 어릴 때의 첫 인상은 오래 남는다.",
+        "quote": "어린 시절에 처음 겪은 일은 오래 남는 인상을 남긴다.",
         "source": "팡세 전승",
         "period": "1670년 사후 출간"
       },
@@ -7835,7 +7835,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "aesop_fables",
       "ko": {
-        "quote": "악의 씨앗은 자라기 전에 없애야 한다.",
+        "quote": "악의 씨앗은 없애라. 그렇지 않으면 자라서 너를 파멸시킬 것이다.",
         "source": "이솝 우화 전승",
         "period": "고대 그리스 우화 전승 / 후대 편집"
       },
@@ -7869,7 +7869,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "pirkei_avot",
       "ko": {
-        "quote": "무지한 사람은 경건할 수 없고, 수줍은 사람은 배울 수 없다.",
+        "quote": "무지한 이는 경건해질 수 없고, 부끄러워 묻지 못하는 이는 배울 수 없다.",
         "source": "피르케이 아보트 2:5 전승",
         "period": "미슈나 전승 / 2세기경 편집"
       },
@@ -7886,7 +7886,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "laozi",
       "ko": {
-        "quote": "강하고 굳은 것은 죽음의 무리이고, 부드럽고 약한 것은 삶의 무리다.",
+        "quote": "굳고 강한 것은 죽음에 속하고, 부드럽고 약한 것은 삶에 속한다.",
         "source": "도덕경 76장",
         "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
       },
