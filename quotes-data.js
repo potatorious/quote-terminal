@@ -7100,6 +7100,856 @@ window.QUOTE_DATA = {
         "시작",
         "변화"
       ]
+    },
+    {
+      "authorId": "socrates",
+      "ko": {
+        "quote": "나는 누구에게도 아무것도 가르칠 수 없다. 다만 생각하게 할 수 있을 뿐이다.",
+        "source": "전승 인용",
+        "period": "고대 그리스 전승"
+      },
+      "original": {
+        "quote": "I cannot teach anybody anything; I can only make them think.",
+        "source": "Attributed saying",
+        "period": "Ancient Greek attribution"
+      },
+      "tags": [
+        "지혜",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "socrates",
+      "ko": {
+        "quote": "가장 부유한 사람은 가장 적은 것에 만족하는 사람이다.",
+        "source": "전승 인용",
+        "period": "고대 그리스 전승"
+      },
+      "original": {
+        "quote": "He is richest who is content with the least.",
+        "source": "Attributed saying",
+        "period": "Ancient Greek attribution"
+      },
+      "tags": [
+        "삶",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "plato",
+      "ko": {
+        "quote": "용기는 두려워할 것과 두려워하지 않을 것을 아는 것이다.",
+        "source": "전승 인용",
+        "period": "기원전 4세기 전승"
+      },
+      "original": {
+        "quote": "Courage is knowing what not to fear.",
+        "source": "Attributed saying",
+        "period": "4th-century BCE attribution"
+      },
+      "tags": [
+        "용기",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "plato",
+      "ko": {
+        "quote": "음악과 리듬은 영혼의 은밀한 곳으로 들어간다.",
+        "source": "국가 전승",
+        "period": "기원전 380년경"
+      },
+      "original": {
+        "quote": "Music and rhythm find their way into the secret places of the soul.",
+        "source": "Republic tradition",
+        "period": "c. 380 BCE"
+      },
+      "tags": [
+        "삶",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "aristotle",
+      "ko": {
+        "quote": "인간의 선은 덕에 따른 영혼의 활동이다.",
+        "source": "니코마코스 윤리학",
+        "period": "기원전 350년경"
+      },
+      "original": {
+        "quote": "Human good turns out to be activity of soul in accordance with virtue.",
+        "source": "Nicomachean Ethics",
+        "period": "c. 350 BCE"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "aristotle",
+      "ko": {
+        "quote": "친구 없는 삶은 아무도 선택하지 않을 것이다.",
+        "source": "니코마코스 윤리학",
+        "period": "기원전 350년경"
+      },
+      "original": {
+        "quote": "Without friends no one would choose to live.",
+        "source": "Nicomachean Ethics",
+        "period": "c. 350 BCE"
+      },
+      "tags": [
+        "관계",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "marcus",
+      "ko": {
+        "quote": "너를 괴롭히는 것은 외부의 일이 아니라 그것에 대한 네 판단이다.",
+        "source": "명상록",
+        "period": "170년경-180년경"
+      },
+      "original": {
+        "quote": "If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it.",
+        "source": "Meditations",
+        "period": "c. 170-180 CE"
+      },
+      "tags": [
+        "회복",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "marcus",
+      "ko": {
+        "quote": "삶의 모든 행동을 마치 마지막 행동인 것처럼 하라.",
+        "source": "명상록 전승",
+        "period": "170년경-180년경"
+      },
+      "original": {
+        "quote": "Do every act of your life as though it were the very last act of your life.",
+        "source": "Meditations tradition",
+        "period": "c. 170-180 CE"
+      },
+      "tags": [
+        "삶",
+        "시작"
+      ]
+    },
+    {
+      "authorId": "seneca",
+      "ko": {
+        "quote": "우리는 배우는 동안 가르친다.",
+        "source": "루킬리우스에게 보낸 편지 전승",
+        "period": "63년경-65년경"
+      },
+      "original": {
+        "quote": "We learn while we teach.",
+        "source": "Letters to Lucilius tradition",
+        "period": "c. 63-65 CE"
+      },
+      "tags": [
+        "지혜",
+        "관계"
+      ]
+    },
+    {
+      "authorId": "seneca",
+      "ko": {
+        "quote": "가벼운 슬픔은 말을 많이 하고, 큰 슬픔은 말이 없다.",
+        "source": "히폴리투스 전승",
+        "period": "1세기경"
+      },
+      "original": {
+        "quote": "Light griefs are loquacious, but the great are dumb.",
+        "source": "Hippolytus tradition",
+        "period": "1st century CE"
+      },
+      "tags": [
+        "회복",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "epictetus",
+      "ko": {
+        "quote": "부는 많이 가지는 데 있지 않고 적게 원하는 데 있다.",
+        "source": "담화록 전승",
+        "period": "108년경"
+      },
+      "original": {
+        "quote": "Wealth consists not in having great possessions, but in having few wants.",
+        "source": "Discourses tradition",
+        "period": "c. 108 CE"
+      },
+      "tags": [
+        "삶",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "epictetus",
+      "ko": {
+        "quote": "일이 네 뜻대로 일어나길 바라지 말고, 일어나는 일을 네 뜻으로 받아들여라.",
+        "source": "엥케이리디온",
+        "period": "125년경"
+      },
+      "original": {
+        "quote": "Do not seek to have events happen as you wish, but wish them to happen as they do happen.",
+        "source": "Enchiridion",
+        "period": "c. 125 CE"
+      },
+      "tags": [
+        "회복",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "cicero",
+      "ko": {
+        "quote": "침묵은 동의로 보인다.",
+        "source": "전승 인용",
+        "period": "고대 로마 전승"
+      },
+      "original": {
+        "quote": "Silence gives consent.",
+        "source": "Attributed saying",
+        "period": "Ancient Roman attribution"
+      },
+      "tags": [
+        "관계",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "cicero",
+      "ko": {
+        "quote": "역사는 시대의 증인이며 진리의 빛이다.",
+        "source": "연설가에 관하여 전승",
+        "period": "기원전 55년"
+      },
+      "original": {
+        "quote": "History is the witness of the times, the light of truth.",
+        "source": "De Oratore tradition",
+        "period": "55 BCE"
+      },
+      "tags": [
+        "진실",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "confucius",
+      "ko": {
+        "quote": "배우고 때때로 익히면 또한 기쁘지 아니한가.",
+        "source": "논어 1.1",
+        "period": "기원전 5세기경 전승 / 후대 편집"
+      },
+      "original": {
+        "quote": "Is it not a pleasure, having learned something, to try it out at due intervals?",
+        "source": "Analects 1.1",
+        "period": "5th-century BCE tradition / later compilation"
+      },
+      "tags": [
+        "지혜",
+        "시작"
+      ]
+    },
+    {
+      "authorId": "confucius",
+      "ko": {
+        "quote": "아는 것을 안다고 하고 모르는 것을 모른다고 하는 것이 아는 것이다.",
+        "source": "논어 2.17 전승",
+        "period": "기원전 5세기경 전승 / 후대 편집"
+      },
+      "original": {
+        "quote": "To know what you know and what you do not know, that is true knowledge.",
+        "source": "Analects 2.17 tradition",
+        "period": "5th-century BCE tradition / later compilation"
+      },
+      "tags": [
+        "지혜",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "mencius",
+      "ko": {
+        "quote": "사람에게는 하지 않는 일이 있어야 그 뒤에 할 수 있는 일이 있다.",
+        "source": "맹자 전승",
+        "period": "기원전 4세기경 전승 / 후대 편집"
+      },
+      "original": {
+        "quote": "A person must have things they will not do, and only then can they have things they will do.",
+        "source": "Mencius tradition",
+        "period": "4th-century BCE tradition / later compilation"
+      },
+      "tags": [
+        "진실",
+        "용기"
+      ]
+    },
+    {
+      "authorId": "mencius",
+      "ko": {
+        "quote": "하늘이 큰 임무를 내리려 할 때 먼저 그 마음을 괴롭게 한다.",
+        "source": "맹자 6B:15 전승",
+        "period": "기원전 4세기경 전승 / 후대 편집"
+      },
+      "original": {
+        "quote": "When Heaven is about to confer a great office on any person, it first exercises his mind with suffering.",
+        "source": "Mencius 6B:15 tradition",
+        "period": "4th-century BCE tradition / later compilation"
+      },
+      "tags": [
+        "회복",
+        "용기"
+      ]
+    },
+    {
+      "authorId": "shakespeare",
+      "ko": {
+        "quote": "강한 이유는 강한 행동을 낳는다.",
+        "source": "존 왕",
+        "period": "1590년대 중반"
+      },
+      "original": {
+        "quote": "Strong reasons make strong actions.",
+        "source": "King John",
+        "period": "Mid-1590s"
+      },
+      "tags": [
+        "용기",
+        "시작"
+      ]
+    },
+    {
+      "authorId": "shakespeare",
+      "ko": {
+        "quote": "현명하고 느리게 가라. 급히 가는 이는 넘어지기 마련이다.",
+        "source": "로미오와 줄리엣",
+        "period": "1595년경-1596년경"
+      },
+      "original": {
+        "quote": "Wisely and slow; they stumble that run fast.",
+        "source": "Romeo and Juliet",
+        "period": "c. 1595-1596"
+      },
+      "tags": [
+        "지혜",
+        "시작"
+      ]
+    },
+    {
+      "authorId": "bacon",
+      "ko": {
+        "quote": "진리는 시간의 딸이지 권위의 딸이 아니다.",
+        "source": "수상록 전승",
+        "period": "1597년-1625년"
+      },
+      "original": {
+        "quote": "Truth is the daughter of time, not of authority.",
+        "source": "Essays tradition",
+        "period": "1597-1625"
+      },
+      "tags": [
+        "진실",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "bacon",
+      "ko": {
+        "quote": "복수를 곱씹는 사람은 자신의 상처를 새롭게 한다.",
+        "source": "수상록, 복수에 관하여",
+        "period": "1625년"
+      },
+      "original": {
+        "quote": "A man that studieth revenge keeps his own wounds green.",
+        "source": "Essays, Of Revenge",
+        "period": "1625"
+      },
+      "tags": [
+        "관계",
+        "회복"
+      ]
+    },
+    {
+      "authorId": "franklin",
+      "ko": {
+        "quote": "경험은 비싼 학교지만 어리석은 이는 다른 곳에서 배우지 못한다.",
+        "source": "가난한 리처드의 달력 전승",
+        "period": "1732년-1758년"
+      },
+      "original": {
+        "quote": "Experience keeps a dear school, but fools will learn in no other.",
+        "source": "Poor Richard's Almanack tradition",
+        "period": "1732-1758"
+      },
+      "tags": [
+        "지혜",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "franklin",
+      "ko": {
+        "quote": "유리와 도자기와 명성은 쉽게 금이 가고 잘 고쳐지지 않는다.",
+        "source": "가난한 리처드의 달력 전승",
+        "period": "1732년-1758년"
+      },
+      "original": {
+        "quote": "Glass, china, and reputation are easily cracked, and never well mended.",
+        "source": "Poor Richard's Almanack tradition",
+        "period": "1732-1758"
+      },
+      "tags": [
+        "진실",
+        "관계"
+      ]
+    },
+    {
+      "authorId": "thoreau",
+      "ko": {
+        "quote": "길을 잃고 나서야 우리는 자신을 이해하기 시작한다.",
+        "source": "월든 전승",
+        "period": "1854년"
+      },
+      "original": {
+        "quote": "Not until we are lost do we begin to understand ourselves.",
+        "source": "Walden tradition",
+        "period": "1854"
+      },
+      "tags": [
+        "변화",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "thoreau",
+      "ko": {
+        "quote": "우정의 언어는 말이 아니라 의미다.",
+        "source": "전승 인용",
+        "period": "19세기 전승"
+      },
+      "original": {
+        "quote": "The language of friendship is not words but meanings.",
+        "source": "Attributed saying",
+        "period": "19th-century attribution"
+      },
+      "tags": [
+        "관계",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "emerson",
+      "ko": {
+        "quote": "자연은 언제나 영혼의 색을 입는다.",
+        "source": "자연 전승",
+        "period": "1836년"
+      },
+      "original": {
+        "quote": "Nature always wears the colors of the spirit.",
+        "source": "Nature tradition",
+        "period": "1836"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "emerson",
+      "ko": {
+        "quote": "항상 당신이 두려워하는 일을 하라.",
+        "source": "일기 전승",
+        "period": "19세기 중반"
+      },
+      "original": {
+        "quote": "Always do what you are afraid to do.",
+        "source": "Journal tradition",
+        "period": "Mid-19th century"
+      },
+      "tags": [
+        "용기",
+        "변화"
+      ]
+    },
+    {
+      "authorId": "nietzsche",
+      "ko": {
+        "quote": "생각은 내가 원할 때가 아니라 그것이 원할 때 온다.",
+        "source": "선악의 저편",
+        "period": "1886년"
+      },
+      "original": {
+        "quote": "A thought comes when it will, not when I will.",
+        "source": "Beyond Good and Evil",
+        "period": "1886"
+      },
+      "tags": [
+        "철학",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "nietzsche",
+      "ko": {
+        "quote": "많은 이는 자신이 고른 길에는 고집스럽지만 목표에는 그렇지 않다.",
+        "source": "전승 인용",
+        "period": "19세기 전승"
+      },
+      "original": {
+        "quote": "Many are stubborn in pursuit of the path they have chosen, few in pursuit of the goal.",
+        "source": "Attributed saying",
+        "period": "19th-century attribution"
+      },
+      "tags": [
+        "시작",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "voltaire",
+      "ko": {
+        "quote": "기존 권위가 틀린 문제에서 옳다는 것은 위험하다.",
+        "source": "전승 인용",
+        "period": "18세기 전승"
+      },
+      "original": {
+        "quote": "It is dangerous to be right in matters on which the established authorities are wrong.",
+        "source": "Attributed saying",
+        "period": "18th-century attribution"
+      },
+      "tags": [
+        "진실",
+        "용기"
+      ]
+    },
+    {
+      "authorId": "voltaire",
+      "ko": {
+        "quote": "편견은 어리석은 사람들이 이성 대신 사용하는 것이다.",
+        "source": "전승 인용",
+        "period": "18세기 전승"
+      },
+      "original": {
+        "quote": "Prejudices are what fools use for reason.",
+        "source": "Attributed saying",
+        "period": "18th-century attribution"
+      },
+      "tags": [
+        "진실",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "montaigne",
+      "ko": {
+        "quote": "철학하는 것은 죽는 법을 배우는 것이다.",
+        "source": "수상록",
+        "period": "1580년 초판 / 1595년 증보판"
+      },
+      "original": {
+        "quote": "To philosophize is to learn to die.",
+        "source": "Essays",
+        "period": "First published 1580 / expanded 1595"
+      },
+      "tags": [
+        "철학",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "montaigne",
+      "ko": {
+        "quote": "지식에 대한 욕망보다 자연스러운 욕망은 없다.",
+        "source": "수상록",
+        "period": "1580년 초판 / 1595년 증보판"
+      },
+      "original": {
+        "quote": "There is no desire more natural than the desire for knowledge.",
+        "source": "Essays",
+        "period": "First published 1580 / expanded 1595"
+      },
+      "tags": [
+        "지혜",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "pascal",
+      "ko": {
+        "quote": "상상력은 모든 것을 지배한다.",
+        "source": "팡세 전승",
+        "period": "1670년 사후 출간"
+      },
+      "original": {
+        "quote": "Imagination disposes of everything.",
+        "source": "Pensees tradition",
+        "period": "Published posthumously in 1670"
+      },
+      "tags": [
+        "철학",
+        "변화"
+      ]
+    },
+    {
+      "authorId": "pascal",
+      "ko": {
+        "quote": "너무 어릴 때의 첫 인상은 오래 남는다.",
+        "source": "팡세 전승",
+        "period": "1670년 사후 출간"
+      },
+      "original": {
+        "quote": "The first effect of things leaves lasting impressions when it occurs in childhood.",
+        "source": "Pensees tradition",
+        "period": "Published posthumously in 1670"
+      },
+      "tags": [
+        "삶",
+        "변화"
+      ]
+    },
+    {
+      "authorId": "goethe",
+      "ko": {
+        "quote": "사람은 이해하는 만큼만 듣는다.",
+        "source": "격언과 성찰 전승",
+        "period": "19세기 초"
+      },
+      "original": {
+        "quote": "A person hears only what they understand.",
+        "source": "Maxims and Reflections tradition",
+        "period": "Early 19th century"
+      },
+      "tags": [
+        "지혜",
+        "관계"
+      ]
+    },
+    {
+      "authorId": "goethe",
+      "ko": {
+        "quote": "오늘보다 더 가치 있는 것은 없다.",
+        "source": "격언과 성찰 전승",
+        "period": "19세기 초"
+      },
+      "original": {
+        "quote": "Nothing is worth more than this day.",
+        "source": "Maxims and Reflections tradition",
+        "period": "Early 19th century"
+      },
+      "tags": [
+        "삶",
+        "시작"
+      ]
+    },
+    {
+      "authorId": "tolstoy",
+      "ko": {
+        "quote": "다수가 함께한다고 해서 잘못이 잘못이 아니게 되지는 않는다.",
+        "source": "전승 인용",
+        "period": "19세기 후반 전승"
+      },
+      "original": {
+        "quote": "Wrong does not cease to be wrong because the majority share in it.",
+        "source": "Attributed saying",
+        "period": "Late 19th-century attribution"
+      },
+      "tags": [
+        "진실",
+        "용기"
+      ]
+    },
+    {
+      "authorId": "tolstoy",
+      "ko": {
+        "quote": "존경은 사랑이 있어야 할 빈자리를 덮기 위해 만들어졌다.",
+        "source": "안나 카레니나",
+        "period": "1875년-1877년"
+      },
+      "original": {
+        "quote": "Respect was invented to cover the empty place where love should be.",
+        "source": "Anna Karenina",
+        "period": "1875-1877"
+      },
+      "tags": [
+        "관계",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "dostoevsky",
+      "ko": {
+        "quote": "행동하는 사랑은 꿈속의 사랑에 비해 가혹하고 두려운 것이다.",
+        "source": "카라마조프가의 형제들",
+        "period": "1879년-1880년"
+      },
+      "original": {
+        "quote": "Love in action is a harsh and dreadful thing compared with love in dreams.",
+        "source": "The Brothers Karamazov",
+        "period": "1879-1880"
+      },
+      "tags": [
+        "관계",
+        "진실"
+      ]
+    },
+    {
+      "authorId": "dostoevsky",
+      "ko": {
+        "quote": "인간 존재의 비밀은 그저 사는 데 있지 않고 무엇을 위해 사는가를 찾는 데 있다.",
+        "source": "카라마조프가의 형제들",
+        "period": "1879년-1880년"
+      },
+      "original": {
+        "quote": "The mystery of human existence lies not in just staying alive, but in finding something to live for.",
+        "source": "The Brothers Karamazov",
+        "period": "1879-1880"
+      },
+      "tags": [
+        "삶",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "aesop_fables",
+      "ko": {
+        "quote": "작은 마음일수록 자만은 더 커진다.",
+        "source": "이솝 우화 전승",
+        "period": "고대 그리스 우화 전승 / 후대 편집"
+      },
+      "original": {
+        "quote": "The smaller the mind, the greater the conceit.",
+        "source": "Aesop's Fables tradition",
+        "period": "Ancient Greek fable tradition / later compilation"
+      },
+      "tags": [
+        "진실",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "aesop_fables",
+      "ko": {
+        "quote": "악의 씨앗은 자라기 전에 없애야 한다.",
+        "source": "이솝 우화 전승",
+        "period": "고대 그리스 우화 전승 / 후대 편집"
+      },
+      "original": {
+        "quote": "Destroy the seed of evil, or it will grow up to your ruin.",
+        "source": "Aesop's Fables tradition",
+        "period": "Ancient Greek fable tradition / later compilation"
+      },
+      "tags": [
+        "시작",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "pirkei_avot",
+      "ko": {
+        "quote": "밀가루가 없으면 토라도 없고, 토라가 없으면 밀가루도 없다.",
+        "source": "피르케이 아보트 3:17",
+        "period": "미슈나 전승 / 2세기경 편집"
+      },
+      "original": {
+        "quote": "Where there is no flour, there is no Torah; where there is no Torah, there is no flour.",
+        "source": "Pirkei Avot 3:17",
+        "period": "Mishnah tradition / compiled c. 2nd century CE"
+      },
+      "tags": [
+        "삶",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "pirkei_avot",
+      "ko": {
+        "quote": "무지한 사람은 경건할 수 없고, 수줍은 사람은 배울 수 없다.",
+        "source": "피르케이 아보트 2:5 전승",
+        "period": "미슈나 전승 / 2세기경 편집"
+      },
+      "original": {
+        "quote": "No ignorant person can be pious, and no bashful person can learn.",
+        "source": "Pirkei Avot 2:5 tradition",
+        "period": "Mishnah tradition / compiled c. 2nd century CE"
+      },
+      "tags": [
+        "지혜",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "laozi",
+      "ko": {
+        "quote": "강하고 굳은 것은 죽음의 무리이고, 부드럽고 약한 것은 삶의 무리다.",
+        "source": "도덕경 76장",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
+      },
+      "original": {
+        "quote": "The hard and strong are companions of death; the soft and weak are companions of life.",
+        "source": "Dao De Jing, chapter 76",
+        "period": "Warring States period text / James Legge translation"
+      },
+      "tags": [
+        "변화",
+        "삶"
+      ]
+    },
+    {
+      "authorId": "laozi",
+      "ko": {
+        "quote": "스스로 드러내지 않는 사람은 밝게 빛난다.",
+        "source": "도덕경 22장",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
+      },
+      "original": {
+        "quote": "He who does not display himself is therefore luminous.",
+        "source": "Dao De Jing, chapter 22",
+        "period": "Warring States period text / James Legge translation"
+      },
+      "tags": [
+        "철학",
+        "지혜"
+      ]
+    },
+    {
+      "authorId": "zhuangzi",
+      "ko": {
+        "quote": "일어나는 대로 흐르게 두고 마음을 자유롭게 하라.",
+        "source": "장자 전승",
+        "period": "전국시대 문헌 / 후대 편집"
+      },
+      "original": {
+        "quote": "Flow with whatever may happen, and let your mind be free.",
+        "source": "Zhuangzi tradition",
+        "period": "Warring States period text / later compilation"
+      },
+      "tags": [
+        "회복",
+        "철학"
+      ]
+    },
+    {
+      "authorId": "zhuangzi",
+      "ko": {
+        "quote": "쓸모없음의 쓸모를 알아야 쓸모를 말할 수 있다.",
+        "source": "장자 전승",
+        "period": "전국시대 문헌 / 후대 편집"
+      },
+      "original": {
+        "quote": "Only when one knows the usefulness of the useless can one begin to speak of what is useful.",
+        "source": "Zhuangzi tradition",
+        "period": "Warring States period text / later compilation"
+      },
+      "tags": [
+        "지혜",
+        "철학"
+      ]
     }
   ]
 };
