@@ -6034,7 +6034,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "shakespeare",
       "ko": {
-        "quote": "바퀴는 완전히 한 바퀴 돌아왔다.",
+        "quote": "모든 일은 돌고 돌아 결국 제자리로 돌아온다.",
         "source": "리어 왕",
         "period": "1605년경-1606년경"
       },
