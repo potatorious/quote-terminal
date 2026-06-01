@@ -3841,13 +3841,13 @@ window.QUOTE_DATA = {
     {
       "authorId": "zhuangzi",
       "ko": {
-        "quote": "큰 앎은 넓고, 작은 앎은 다툰다.",
+        "quote": "큰 앎은 넓고 두루 통하며, 작은 앎은 부분에 머문다.",
         "source": "장자 제물론",
         "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
       },
       "original": {
-        "quote": "Great knowledge is generous; small knowledge is contentious.",
-        "source": "Zhuangzi, Discussion on Making All Things Equal",
+        "quote": "Great knowledge is wide and comprehensive; small knowledge is partial and restricted.",
+        "source": "Zhuangzi, The Adjustment of Controversies",
         "period": "Warring States period text / James Legge translation"
       },
       "tags": [
