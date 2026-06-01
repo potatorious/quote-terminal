@@ -3195,7 +3195,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "laozi",
       "ko": {
-        "quote": "사람은 살아 있을 때 부드럽고 약하지만 죽으면 단단하고 강직하다.",
+        "quote": "사람은 살아 있을 때 부드럽고 약하지만, 죽으면 굳고 뻣뻣해진다.",
         "source": "도덕경 76장",
         "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
       },
@@ -7342,14 +7342,14 @@ window.QUOTE_DATA = {
     {
       "authorId": "confucius",
       "ko": {
-        "quote": "배우고 때때로 익히면 또한 기쁘지 아니한가.",
-        "source": "논어 1.1",
-        "period": "기원전 5세기경 전승 / 후대 편집"
+        "quote": "인을 묻자, 공자는 사람을 사랑하는 것이라고 답했다.",
+        "source": "논어 안연 12장 22절",
+        "period": "춘추시대 전승, 기원전 5세기 이후 편찬 / 제임스 레그 영어 번역본"
       },
       "original": {
-        "quote": "Is it not a pleasure, having learned something, to try it out at due intervals?",
-        "source": "Analects 1.1",
-        "period": "5th-century BCE tradition / later compilation"
+        "quote": "Fan Ch'ih asked about benevolence. The Master said, It is to love all men.",
+        "source": "Analects, Yan Yuan 12.22",
+        "period": "Compiled after the 5th century BCE / James Legge translation"
       },
       "tags": [
         "지혜",
@@ -7393,14 +7393,14 @@ window.QUOTE_DATA = {
     {
       "authorId": "mencius",
       "ko": {
-        "quote": "하늘이 큰 임무를 내리려 할 때 먼저 그 마음을 괴롭게 한다.",
-        "source": "맹자 6B:15 전승",
-        "period": "기원전 4세기경 전승 / 후대 편집"
+        "quote": "마음을 다하면 자기 본성을 알고, 본성을 알면 하늘을 안다.",
+        "source": "맹자 진심 상 7장 1절",
+        "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
       },
       "original": {
-        "quote": "When Heaven is about to confer a great office on any person, it first exercises his mind with suffering.",
-        "source": "Mencius 6B:15 tradition",
-        "period": "4th-century BCE tradition / later compilation"
+        "quote": "He who has exhausted all his mental constitution knows his nature. Knowing his nature, he knows Heaven.",
+        "source": "Mencius, Jin Xin I 7.1",
+        "period": "Warring States period text / James Legge translation"
       },
       "tags": [
         "회복",
@@ -7853,7 +7853,7 @@ window.QUOTE_DATA = {
       "authorId": "pirkei_avot",
       "ko": {
         "quote": "밀가루가 없으면 토라도 없고, 토라가 없으면 밀가루도 없다.",
-        "source": "피르케이 아보트 3:17",
+        "source": "피르케이 아보트 3장 17절",
         "period": "미슈나 전승 / 2세기경 편집"
       },
       "original": {
@@ -7870,7 +7870,7 @@ window.QUOTE_DATA = {
       "authorId": "pirkei_avot",
       "ko": {
         "quote": "무지한 이는 경건해질 수 없고, 부끄러워 묻지 못하는 이는 배울 수 없다.",
-        "source": "피르케이 아보트 2:5 전승",
+        "source": "피르케이 아보트 2장 5절 전승",
         "period": "미슈나 전승 / 2세기경 편집"
       },
       "original": {

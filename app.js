@@ -100,6 +100,15 @@ const startupPrompts = {
   original: "Press execute to initiate quote output."
 };
 
+function setInitialCategoryPanelState() {
+  const categoryPanel = document.querySelector(".toggle-panel");
+  if (!categoryPanel) {
+    return;
+  }
+
+  categoryPanel.open = !window.matchMedia("(max-width: 760px)").matches;
+}
+
 function refreshVoiceCache() {
   if (!("speechSynthesis" in window)) {
     cachedVoices = [];
@@ -782,5 +791,6 @@ elements.resetButton.addEventListener("click", async () => {
   setWaitingScreen();
 });
 
+setInitialCategoryPanelState();
 renderTags();
 setWaitingScreen();
