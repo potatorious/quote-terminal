@@ -3807,13 +3807,13 @@ window.QUOTE_DATA = {
     {
       "authorId": "zhuangzi",
       "ko": {
-        "quote": "예전에 장주가 꿈에 나비가 되었다.",
+        "quote": "장주가 나비 꿈을 꾸었는지, 나비가 장주 꿈을 꾸고 있는지 알 수 없었다.",
         "source": "장자 제물론",
         "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
       },
       "original": {
-        "quote": "Once upon a time, I, Chuang Chou, dreamt I was a butterfly.",
-        "source": "Zhuangzi, Discussion on Making All Things Equal",
+        "quote": "I do not know whether I was then a man dreaming I was a butterfly, or whether I am now a butterfly dreaming I am a man.",
+        "source": "Zhuangzi, The Adjustment of Controversies",
         "period": "Warring States period text / James Legge translation"
       },
       "tags": [
@@ -3824,13 +3824,13 @@ window.QUOTE_DATA = {
     {
       "authorId": "zhuangzi",
       "ko": {
-        "quote": "장주가 나비 꿈을 꾸었는지, 나비가 장주 꿈을 꾸는지 알 수 없다.",
+        "quote": "장주와 나비 사이에는 반드시 구분이 있으니, 이것을 사물의 변화라 한다.",
         "source": "장자 제물론",
         "period": "전국시대 문헌 / 제임스 레그 영어 번역본"
       },
       "original": {
-        "quote": "I do not know whether I was then a man dreaming I was a butterfly, or whether I am now a butterfly dreaming I am a man.",
-        "source": "Zhuangzi, Discussion on Making All Things Equal",
+        "quote": "Between Chou and the butterfly there must be a distinction. This is called the Transformation of Things.",
+        "source": "Zhuangzi, The Adjustment of Controversies",
         "period": "Warring States period text / James Legge translation"
       },
       "tags": [
