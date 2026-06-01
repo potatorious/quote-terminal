@@ -162,21 +162,29 @@ h1 {
 
 .terminal-stats {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 4px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  line-height: 1.25;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .terminal-stats span {
-  min-height: 26px;
-  padding: 4px 8px;
-  border: 1px solid var(--green-dim);
   color: var(--green-soft);
-  background: rgba(0, 0, 0, 0.28);
 }
 
 .terminal-stats strong {
   color: var(--green);
+  font-weight: 700;
+}
+
+.meta-list dt,
+.terminal-stats span,
+.tag-name,
+.toggle-panel summary {
+  font-weight: 700;
 }
 
 .terminal-grid {
@@ -219,7 +227,7 @@ h1 {
   border-bottom: 1px solid var(--green-dim);
   color: var(--green);
   background: rgba(18, 108, 34, 0.24);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .terminal-line {
@@ -396,7 +404,7 @@ h1 {
   min-height: 28px;
   padding: 4px 0 8px;
   cursor: pointer;
-  font-weight: 900;
+  font-weight: 700;
   list-style: none;
 }
 
@@ -588,11 +596,14 @@ h1 {
 
   .terminal-header {
     min-height: 0;
-    flex-direction: column;
-    gap: 8px;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 12px;
   }
 
   .terminal-stats {
+    flex: 0 0 auto;
+    gap: 4px;
     justify-content: flex-start;
   }
 

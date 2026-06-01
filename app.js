@@ -49,7 +49,7 @@ const state = {
 
 const elements = {
   quoteCount: document.querySelector("#quote-count"),
-  languageCount: document.querySelector("#language-count"),
+  authorCount: document.querySelector("#author-count"),
   kstClock: document.querySelector("#kst-clock"),
   quoteText: document.querySelector("#quote-text"),
   originalText: document.querySelector("#original-text"),
@@ -91,7 +91,7 @@ const readTargets = {
 
 const categorySet = new Set(categoryOrder);
 const tags = categoryOrder;
-const languages = new Set(quotes.flatMap((quote) => [quote.ko.language, quote.original.language]));
+const authorCount = Object.keys(quoteDataset.authors).length;
 
 let cachedVoices = [];
 const quoteScaleClasses = ["is-long", "is-very-long"];
@@ -775,7 +775,7 @@ async function copyQuote() {
 }
 
 elements.quoteCount.textContent = quotes.length;
-elements.languageCount.textContent = languages.size;
+elements.authorCount.textContent = authorCount;
 updateKoreanClock();
 window.setInterval(updateKoreanClock, 1000);
 elements.randomButton.addEventListener("click", nextQuote);

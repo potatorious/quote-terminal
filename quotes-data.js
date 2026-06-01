@@ -1989,7 +1989,7 @@ window.QUOTE_DATA = {
       "authorId": "emerson",
       "ko": {
         "quote": "네 자신을 믿어라. 모든 마음은 그 쇠줄에 떨린다.",
-        "source": "자기 신뢰",
+        "source": "자기신뢰",
         "period": "1841년"
       },
       "original": {
@@ -2045,7 +2045,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "Humanity is but a reed, the most feeble thing in nature, but a thinking reed.",
-        "source": "Pensees",
+        "source": "Pensées",
         "period": "Published posthumously in 1670"
       },
       "tags": [
@@ -5831,7 +5831,7 @@ window.QUOTE_DATA = {
       "authorId": "emerson",
       "ko": {
         "quote": "부러움은 무지이고, 모방은 자기 포기다.",
-        "source": "자기 신뢰",
+        "source": "자기신뢰",
         "period": "1841년-1844년"
       },
       "original": {
@@ -5848,7 +5848,7 @@ window.QUOTE_DATA = {
       "authorId": "emerson",
       "ko": {
         "quote": "사람답게 살고자 한다면 순응하지 않는 사람이 되어야 한다.",
-        "source": "자기 신뢰",
+        "source": "자기신뢰",
         "period": "1841년-1844년"
       },
       "original": {
@@ -5865,7 +5865,7 @@ window.QUOTE_DATA = {
       "authorId": "emerson",
       "ko": {
         "quote": "끝내 신성한 것은 자기 마음의 온전함뿐이다.",
-        "source": "자기 신뢰",
+        "source": "자기신뢰",
         "period": "1841년-1844년"
       },
       "original": {
@@ -5882,7 +5882,7 @@ window.QUOTE_DATA = {
       "authorId": "emerson",
       "ko": {
         "quote": "위대하다는 것은 오해받는 것이다.",
-        "source": "자기 신뢰",
+        "source": "자기신뢰",
         "period": "1841년-1844년"
       },
       "original": {
@@ -6516,7 +6516,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "All man's dignity consists in thought.",
-        "source": "Pensees",
+        "source": "Pensées",
         "period": "17th-century French notes / public-domain English translation"
       },
       "tags": [
@@ -6533,7 +6533,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "We know the truth, not only by the reason, but also by the heart.",
-        "source": "Pensees",
+        "source": "Pensées",
         "period": "17th-century French notes / public-domain English translation"
       },
       "tags": [
@@ -6550,7 +6550,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "Man is neither angel nor beast.",
-        "source": "Pensees",
+        "source": "Pensées",
         "period": "17th-century French notes / public-domain English translation"
       },
       "tags": [
@@ -6567,7 +6567,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "The eternal silence of these infinite spaces frightens me.",
-        "source": "Pensees",
+        "source": "Pensées",
         "period": "17th-century French notes / public-domain English translation"
       },
       "tags": [
@@ -6584,7 +6584,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "Curiosity is only vanity.",
-        "source": "Pensees",
+        "source": "Pensées",
         "period": "17th-century French notes / public-domain English translation"
       },
       "tags": [
@@ -7462,7 +7462,7 @@ window.QUOTE_DATA = {
       "authorId": "bacon",
       "ko": {
         "quote": "복수를 곱씹는 사람은 자신의 상처를 새롭게 한다.",
-        "source": "수상록, 복수에 관하여",
+        "source": "수상록: 복수에 관하여",
         "period": "1625년"
       },
       "original": {
@@ -7479,12 +7479,12 @@ window.QUOTE_DATA = {
       "authorId": "franklin",
       "ko": {
         "quote": "경험은 비싼 학교지만 어리석은 이는 다른 곳에서 배우지 못한다.",
-        "source": "가난한 리처드의 달력 전승",
+        "source": "가난한 리처드의 연감",
         "period": "1732년-1758년"
       },
       "original": {
         "quote": "Experience keeps a dear school, but fools will learn in no other.",
-        "source": "Poor Richard's Almanack tradition",
+        "source": "Poor Richard's Almanack",
         "period": "1732-1758"
       },
       "tags": [
@@ -7496,12 +7496,12 @@ window.QUOTE_DATA = {
       "authorId": "franklin",
       "ko": {
         "quote": "유리와 도자기와 명성은 쉽게 금이 가고 잘 고쳐지지 않는다.",
-        "source": "가난한 리처드의 달력 전승",
+        "source": "가난한 리처드의 연감",
         "period": "1732년-1758년"
       },
       "original": {
         "quote": "Glass, china, and reputation are easily cracked, and never well mended.",
-        "source": "Poor Richard's Almanack tradition",
+        "source": "Poor Richard's Almanack",
         "period": "1732-1758"
       },
       "tags": [
@@ -7688,7 +7688,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "Imagination disposes of everything.",
-        "source": "Pensees tradition",
+        "source": "Pensées tradition",
         "period": "Published posthumously in 1670"
       },
       "tags": [
@@ -7705,7 +7705,7 @@ window.QUOTE_DATA = {
       },
       "original": {
         "quote": "The first effect of things leaves lasting impressions when it occurs in childhood.",
-        "source": "Pensees tradition",
+        "source": "Pensées tradition",
         "period": "Published posthumously in 1670"
       },
       "tags": [
