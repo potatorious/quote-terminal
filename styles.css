@@ -1,10 +1,37 @@
 :root {
   --screen: #020703;
+  --terminal-black: #010201;
   --green: #7cff7d;
   --green-soft: #37d84c;
   --green-dim: #248d35;
   --green-faint: #0d4417;
   --amber: #bfa95e;
+  --button-active-ink: #001902;
+  --transparent: transparent;
+  --green-grid-faint: rgba(124, 255, 125, 0.018);
+  --green-halo: rgba(124, 255, 125, 0.08);
+  --green-border-glow: rgba(124, 255, 125, 0.12);
+  --green-shell-shadow: rgba(18, 108, 34, 0.28);
+  --green-title-bg: rgba(18, 108, 34, 0.24);
+  --green-header-glow: rgba(124, 255, 125, 0.42);
+  --green-scanline: rgba(124, 255, 125, 0.032);
+  --green-phosphor-wash: rgba(124, 255, 125, 0.025);
+  --green-phosphor-soft: rgba(124, 255, 125, 0.02);
+  --green-phosphor-stripe: rgba(124, 255, 125, 0.026);
+  --green-text-glow-strong: rgba(124, 255, 125, 0.8);
+  --green-text-glow-soft: rgba(124, 255, 125, 0.28);
+  --green-startup-glow-strong: rgba(124, 255, 125, 0.9);
+  --green-startup-glow-soft: rgba(124, 255, 125, 0.34);
+  --green-cursor-glow: rgba(124, 255, 125, 0.78);
+  --green-switch-bg: rgba(124, 255, 125, 0.08);
+  --green-switch-glow: rgba(124, 255, 125, 0.75);
+  --amber-focus-glow: rgba(191, 169, 94, 0.72);
+  --amber-button-glow: rgba(191, 169, 94, 0.74);
+  --panel-bg: rgba(0, 10, 2, 0.72);
+  --black-heavy-shadow: rgba(0, 0, 0, 0.94);
+  --black-vignette: rgba(0, 0, 0, 0.42);
+  --black-scanline: rgba(0, 0, 0, 0.22);
+  --font-terminal: "Lucida Console", "Courier New", "D2Coding", monospace;
   --font-big: 3.8rem;
   --quote-font-long: 3rem;
   --quote-font-very-long: 2.35rem;
@@ -24,7 +51,7 @@ html {
   min-height: 100%;
   margin: 0;
   overflow: auto;
-  background: #010201;
+  background: var(--terminal-black);
 }
 
 body {
@@ -32,9 +59,9 @@ body {
   min-height: 100%;
   margin: 0;
   overflow: visible;
-  background: #010201;
+  background: var(--terminal-black);
   color: var(--green);
-  font-family: "Lucida Console", "Courier New", "D2Coding", monospace;
+  font-family: var(--font-terminal);
   font-size: var(--font-small);
 }
 
@@ -52,8 +79,8 @@ input {
   overflow: visible;
   padding: 8px;
   background:
-    repeating-linear-gradient(90deg, rgba(124, 255, 125, 0.018) 0 1px, transparent 1px 10px),
-    #010201;
+    repeating-linear-gradient(90deg, var(--green-grid-faint) 0 1px, var(--transparent) 1px 10px),
+    var(--terminal-black);
 }
 
 .screen {
@@ -68,12 +95,12 @@ input {
   padding: var(--pad);
   border: 2px solid var(--green-dim);
   background:
-    radial-gradient(ellipse at 50% 48%, rgba(124, 255, 125, 0.08), transparent 62%),
+    radial-gradient(ellipse at 50% 48%, var(--green-halo), var(--transparent) 62%),
     var(--screen);
   box-shadow:
-    inset 0 0 0 1px rgba(124, 255, 125, 0.12),
-    inset 0 0 80px rgba(0, 0, 0, 0.94),
-    0 0 18px rgba(18, 108, 34, 0.28);
+    inset 0 0 0 1px var(--green-border-glow),
+    inset 0 0 80px var(--black-heavy-shadow),
+    0 0 18px var(--green-shell-shadow);
 }
 
 .screen::before {
@@ -82,7 +109,7 @@ input {
   inset: 0;
   z-index: 4;
   pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 58%, rgba(0, 0, 0, 0.42) 100%);
+  background: radial-gradient(ellipse at center, var(--transparent) 58%, var(--black-vignette) 100%);
 }
 
 .scanlines {
@@ -92,10 +119,10 @@ input {
   pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
-    rgba(124, 255, 125, 0.032) 0,
-    rgba(124, 255, 125, 0.032) 1px,
-    rgba(0, 0, 0, 0.22) 1px,
-    rgba(0, 0, 0, 0.22) 5px
+    var(--green-scanline) 0,
+    var(--green-scanline) 1px,
+    var(--black-scanline) 1px,
+    var(--black-scanline) 5px
   );
 }
 
@@ -106,8 +133,8 @@ input {
   pointer-events: none;
   opacity: 0.56;
   background:
-    linear-gradient(rgba(124, 255, 125, 0.025), transparent 22%, rgba(124, 255, 125, 0.02) 58%, transparent),
-    repeating-linear-gradient(90deg, rgba(124, 255, 125, 0.026) 0 1px, transparent 1px 3px);
+    linear-gradient(var(--green-phosphor-wash), var(--transparent) 22%, var(--green-phosphor-soft) 58%, var(--transparent)),
+    repeating-linear-gradient(90deg, var(--green-phosphor-stripe) 0 1px, var(--transparent) 1px 3px);
 }
 
 .terminal-header,
@@ -125,7 +152,7 @@ input {
   min-height: 56px;
   margin-bottom: var(--gap);
   text-transform: uppercase;
-  text-shadow: 0 0 4px rgba(124, 255, 125, 0.42);
+  text-shadow: 0 0 4px var(--green-header-glow);
 }
 
 .boot-label,
@@ -199,7 +226,7 @@ h1 {
 .control-window {
   min-height: 0;
   border: 1px solid var(--green-dim);
-  background: rgba(0, 10, 2, 0.72);
+  background: var(--panel-bg);
 }
 
 .output-window {
@@ -226,7 +253,7 @@ h1 {
   padding: 6px 8px;
   border-bottom: 1px solid var(--green-dim);
   color: var(--green);
-  background: rgba(18, 108, 34, 0.24);
+  background: var(--green-title-bg);
   font-weight: 700;
 }
 
@@ -285,8 +312,8 @@ h1 {
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-shadow:
-    0 0 2px rgba(124, 255, 125, 0.8),
-    0 0 8px rgba(124, 255, 125, 0.28);
+    0 0 2px var(--green-text-glow-strong),
+    0 0 8px var(--green-text-glow-soft);
 }
 
 .quote-text.is-long {
@@ -302,8 +329,8 @@ h1 {
   font-size: var(--quote-font-long);
   line-height: 1.32;
   text-shadow:
-    0 0 2px rgba(124, 255, 125, 0.9),
-    0 0 10px rgba(124, 255, 125, 0.34);
+    0 0 2px var(--green-startup-glow-strong),
+    0 0 10px var(--green-startup-glow-soft);
 }
 
 .terminal-cursor {
@@ -313,7 +340,7 @@ h1 {
   margin-left: 0.18em;
   vertical-align: -0.08em;
   background: var(--green);
-  box-shadow: 0 0 9px rgba(124, 255, 125, 0.78);
+  box-shadow: 0 0 9px var(--green-cursor-glow);
   animation: terminal-cursor-blink 950ms steps(1, end) infinite;
 }
 
@@ -428,7 +455,7 @@ h1 {
 .toggle-panel summary:focus-visible {
   outline: 2px solid var(--amber);
   outline-offset: 2px;
-  box-shadow: 0 0 10px rgba(191, 169, 94, 0.72);
+  box-shadow: 0 0 10px var(--amber-focus-glow);
 }
 
 .tag-fieldset {
@@ -477,7 +504,7 @@ h1 {
   width: 34px;
   height: 16px;
   border: 1px solid var(--green-faint);
-  background: #010201;
+  background: var(--terminal-black);
 }
 
 .switch::after {
@@ -492,21 +519,21 @@ h1 {
 
 .tag-toggle input:checked + .switch {
   border-color: var(--green);
-  background: rgba(124, 255, 125, 0.08);
+  background: var(--green-switch-bg);
 }
 
 .tag-toggle input:focus-visible + .switch {
   outline: 2px solid var(--amber);
   outline-offset: 3px;
   box-shadow:
-    0 0 0 1px #010201,
-    0 0 10px rgba(191, 169, 94, 0.72);
+    0 0 0 1px var(--terminal-black),
+    0 0 10px var(--amber-focus-glow);
 }
 
 .tag-toggle input:checked + .switch::after {
   transform: translateX(18px);
   background: var(--green);
-  box-shadow: 0 0 6px rgba(124, 255, 125, 0.75);
+  box-shadow: 0 0 6px var(--green-switch-glow);
 }
 
 .tag-name {
@@ -533,7 +560,7 @@ h1 {
 }
 
 .terminal-button:hover {
-  color: #001902;
+  color: var(--button-active-ink);
   background: var(--green);
 }
 
@@ -541,8 +568,8 @@ h1 {
   outline: 2px solid var(--amber);
   outline-offset: 2px;
   box-shadow:
-    inset 0 0 0 1px #010201,
-    0 0 12px rgba(191, 169, 94, 0.74);
+    inset 0 0 0 1px var(--terminal-black),
+    0 0 12px var(--amber-button-glow);
 }
 
 .terminal-button:active {
@@ -557,7 +584,7 @@ h1 {
   min-height: 36px;
   padding: 8px 12px;
   border: 1px solid var(--green);
-  background: #020703;
+  background: var(--screen);
   color: var(--green);
   opacity: 0;
   pointer-events: none;
