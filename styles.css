@@ -70,6 +70,18 @@ input {
   font: inherit;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .terminal-shell {
   width: 100%;
   min-width: var(--min-app-width);
@@ -156,8 +168,7 @@ input {
 }
 
 .boot-label,
-.kst-clock,
-h1,
+.system-clock,
 .terminal-stats span,
 .window-title,
 .terminal-line,
@@ -171,20 +182,14 @@ h1,
 
 .boot-label {
   margin: 0 0 5px;
-  color: var(--green-soft);
+  color: var(--green);
 }
 
-.kst-clock {
+.system-clock {
   display: block;
   margin-top: 5px;
   color: var(--amber);
   line-height: 1.15;
-}
-
-h1 {
-  margin: 0;
-  line-height: 1;
-  font-weight: 700;
 }
 
 .terminal-stats {
@@ -270,18 +275,6 @@ h1 {
 .meta-list dt,
 .toggle-panel summary {
   color: var(--amber);
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 .quote-output {

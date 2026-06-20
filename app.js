@@ -18,17 +18,13 @@ const quotes = quoteDataset.quotes.map((entry) => {
       quote: entry.ko.quote,
       author: author.ko.name,
       source: entry.ko.source,
-      language: author.ko.language,
-      life: author.ko.life,
-      period: entry.ko.period
+      language: author.ko.language
     },
     original: {
       quote: entry.original.quote,
       author: author.original.name,
       source: entry.original.source,
-      language: author.original.language,
-      life: author.original.life,
-      period: entry.original.period
+      language: author.original.language
     },
     tags: entry.tags
   };
@@ -50,13 +46,11 @@ const state = {
 const elements = {
   quoteCount: document.querySelector("#quote-count"),
   authorCount: document.querySelector("#author-count"),
-  kstClock: document.querySelector("#kst-clock"),
+  systemClock: document.querySelector("#system-clock"),
   quoteText: document.querySelector("#quote-text"),
   originalText: document.querySelector("#original-text"),
   quoteAuthor: document.querySelector("#quote-author"),
-  quoteLife: document.querySelector("#quote-life"),
   quoteSource: document.querySelector("#quote-source"),
-  quotePeriod: document.querySelector("#quote-period"),
   quoteLanguage: document.querySelector("#quote-language"),
   randomButton: document.querySelector("#random-button"),
   previousButton: document.querySelector("#previous-button"),
@@ -89,8 +83,6 @@ const readTargets = {
   ]
 };
 
-const categorySet = new Set(categoryOrder);
-const tags = categoryOrder;
 const authorCount = Object.keys(quoteDataset.authors).length;
 
 let cachedVoices = [];
@@ -99,6 +91,58 @@ const startupPrompts = {
   ko: "실행 키를 눌러 명언 출력을 개시하십시오.",
   original: "Press execute to initiate quote output."
 };
+
+function formatSystemTime(date) {
+  const parts = new Intl.DateTimeFormat(undefined, {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23"
+  })
+    .formatToParts(date)
+    .reduce((result, part) => {
+      if (part.type !== "literal") {
+        result[part.type] = part.value;
+      }
+      return result;
+    }, {});
+
+  return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
+}
+
+function updateSystemClock() {
+  const now = new Date();
+  elements.systemClock.textContent = formatSystemTime(now);
+  elements.systemClock.dateTime = now.toISOString();
+}
+
+function koreanSinoNumber(numberText) {
+  const number = Number(numberText);
+  const digits = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"];
+
+  if (!Number.isInteger(number) || number <= 0 || number >= 100) {
+    return numberText;
+  }
+
+  if (number < 10) {
+    return digits[number];
+  }
+
+  const tens = Math.floor(number / 10);
+  const ones = number % 10;
+  const tenText = tens === 1 ? "십" : `${digits[tens]}십`;
+
+  return ones ? `${tenText}${digits[ones]}` : tenText;
+}
+
+function normalizeKoreanSpeechText(text) {
+  return text
+    .replace(/(\d+)\s*[:：]\s*(\d+)/g, "$1장 $2절")
+    .replace(/(\d+)\s*(권|장|절)/g, (_, number, unit) => `${koreanSinoNumber(number)}${unit}`);
+}
 
 function setInitialCategoryPanelState() {
   const categoryPanel = document.querySelector(".toggle-panel");
@@ -216,7 +260,7 @@ function filteredQuotes() {
     return quotes;
   }
 
-  return quotes.filter((quote) => selected.some((tag) => quote.tags.includes(tag) && categorySet.has(tag)));
+  return quotes.filter((quote) => selected.some((tag) => quote.tags.includes(tag)));
 }
 
 function pickRandomIndex() {
@@ -261,9 +305,7 @@ function setWaitingScreen() {
 
   elements.originalText.replaceChildren(createReadTokens(startupPrompts.original, "original-quote"));
   elements.quoteAuthor.textContent = "";
-  elements.quoteLife.textContent = "";
   elements.quoteSource.textContent = "";
-  elements.quotePeriod.textContent = "";
   elements.quoteLanguage.textContent = "";
   elements.originalText.hidden = false;
   elements.quoteAuthor.closest(".meta-list").hidden = true;
@@ -271,34 +313,7 @@ function setWaitingScreen() {
   updateCommand();
 }
 
-function formatKoreanTime(date) {
-  const parts = new Intl.DateTimeFormat("ko-KR", {
-    timeZone: "Asia/Seoul",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hourCycle: "h23"
-  })
-    .formatToParts(date)
-    .reduce((result, part) => {
-      if (part.type !== "literal") {
-        result[part.type] = part.value;
-      }
-      return result;
-    }, {});
 
-  return `${parts.year}.${parts.month}.${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
-}
-
-function updateKoreanClock() {
-  const now = new Date();
-  const text = formatKoreanTime(now);
-  elements.kstClock.textContent = `KST ${text}`;
-  elements.kstClock.dateTime = now.toISOString();
-}
 
 function stopSpeechOutput() {
   state.readSessionId += 1;
@@ -403,9 +418,7 @@ function renderQuote(index) {
   });
   elements.originalText.replaceChildren(createReadTokens(quote.original.quote, "original-quote"));
   setMeta(elements.quoteAuthor, quote.ko.author, quote.original.author, "author");
-  setMeta(elements.quoteLife, quote.ko.life, quote.original.life, "life");
   setMeta(elements.quoteSource, quote.ko.source, quote.original.source, "source");
-  setMeta(elements.quotePeriod, quote.ko.period, quote.original.period, "period");
   setMeta(elements.quoteLanguage, quote.ko.language, quote.original.language, "language");
 }
 
@@ -499,14 +512,7 @@ const speechLanguageProfiles = [
     lang: "en-US",
     names: [/david/i, /mark/i, /george/i, /desktop/i, /english/i, /zira/i, /daniel/i, /samantha/i],
     name: /english|samantha|daniel|zira|david/i
-  },
-  { test: /프랑스어|french/i, lang: "fr-FR", name: /french|thomas|amelie|hortense/i },
-  { test: /독일어|german/i, lang: "de-DE", name: /german|anna|katja|markus/i },
-  { test: /러시아어|russian/i, lang: "ru-RU", name: /russian|irina|pavel/i },
-  { test: /고전 중국어|classical chinese/i, lang: "zh-CN", name: /chinese|huihui|kangkang|ting-ting/i },
-  { test: /고대 그리스어|ancient greek/i, lang: "el-GR", name: /greek|helena|nikos/i },
-  { test: /라틴어|latin/i, lang: "it-IT", name: /italian|elsa|cosimo/i },
-  { test: /팔리어|산스크리트|pali|sanskrit/i, lang: "hi-IN", name: /hindi|heera|kalpana/i }
+  }
 ];
 
 function speechProfileForLanguage(language) {
@@ -530,9 +536,6 @@ function chooseVoiceForLanguage(voices, language) {
   );
 }
 
-function normalizeKoreanSpeechText(text) {
-  return text.replace(/(\d+)\s*[:：]\s*(\d+)/g, "$1장 $2절");
-}
 
 async function speakQuote(mode) {
   await unlockAudio();
@@ -650,7 +653,7 @@ function renderTags() {
   elements.tagGrid.innerHTML = "";
   updateCommand();
 
-  tags.forEach((tag) => {
+  categoryOrder.forEach((tag) => {
     const label = document.createElement("label");
     label.className = "tag-toggle";
 
@@ -776,8 +779,8 @@ async function copyQuote() {
 
 elements.quoteCount.textContent = quotes.length;
 elements.authorCount.textContent = authorCount;
-updateKoreanClock();
-window.setInterval(updateKoreanClock, 1000);
+updateSystemClock();
+window.setInterval(updateSystemClock, 1000);
 elements.randomButton.addEventListener("click", nextQuote);
 elements.previousButton.addEventListener("click", previousQuote);
 elements.speakKoButton.addEventListener("click", () => speakQuote("ko"));

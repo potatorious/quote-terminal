@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>명언 터미널</title>
-    <link rel="stylesheet" href="./styles.css?v=450-20260620a" />
+    <link rel="stylesheet" href="./styles.css?v=450-20260620e" />
   </head>
   <body>
-    <main class="terminal-shell" aria-labelledby="app-title">
+    <main class="terminal-shell" aria-label="명언 터미널">
       <div class="screen">
         <div class="scanlines" aria-hidden="true"></div>
         <div class="phosphor-burn" aria-hidden="true"></div>
@@ -15,8 +15,7 @@
         <header class="terminal-header">
           <div>
             <p class="boot-label">QUOTE MEMORY BANK 1978</p>
-            <h1 id="app-title">명언 터미널</h1>
-            <time class="kst-clock" id="kst-clock">KST ----.--.-- --:--:--</time>
+            <time class="system-clock" id="system-clock">----.--.-- --:--:--</time>
           </div>
           <div class="terminal-stats" aria-label="데이터 요약">
             <span>명언: <strong id="quote-count">0</strong></span>
@@ -46,16 +45,8 @@
                   <dd id="quote-author"></dd>
                 </div>
                 <div>
-                  <dt>생몰/시기</dt>
-                  <dd id="quote-life"></dd>
-                </div>
-                <div>
                   <dt>출처</dt>
                   <dd id="quote-source"></dd>
-                </div>
-                <div>
-                  <dt>작성시기</dt>
-                  <dd id="quote-period"></dd>
                 </div>
                 <div>
                   <dt>언어</dt>
@@ -93,7 +84,7 @@
     </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="./quotes-data.js?v=450-20260601c"></script>
-    <script src="./app.js?v=450-20260601c"></script>
+    <script src="./quotes-data.js?v=450-20260620e"></script>
+    <script src="./app.js?v=450-20260620e"></script>
   </body>
 </html>
