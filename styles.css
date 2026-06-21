@@ -156,15 +156,21 @@ input {
 }
 
 .terminal-header {
-  display: flex;
+  display: grid;
   flex: 0 0 auto;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 18px;
-  min-height: 56px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: repeat(2, 17px);
+  align-items: end;
+  column-gap: 18px;
+  row-gap: 4px;
+  min-height: 38px;
   margin-bottom: var(--gap);
   text-transform: uppercase;
   text-shadow: 0 0 4px var(--green-header-glow);
+}
+
+.terminal-header > div {
+  display: contents;
 }
 
 .boot-label,
@@ -181,30 +187,45 @@ input {
 }
 
 .boot-label {
-  margin: 0 0 5px;
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
   color: var(--green);
+  line-height: 1;
 }
 
 .system-clock {
+  grid-column: 1;
+  grid-row: 2;
   display: block;
-  margin-top: 5px;
+  margin: 0;
   color: var(--amber);
-  line-height: 1.15;
+  line-height: 1;
 }
 
 .terminal-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  line-height: 1.25;
+  display: contents;
+  line-height: 1;
   text-align: right;
   white-space: nowrap;
 }
 
 .terminal-stats span {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   color: var(--green-soft);
+  line-height: 1;
+}
+
+.terminal-stats span:first-child {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.terminal-stats span:last-child {
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .terminal-stats strong {
@@ -266,9 +287,17 @@ input {
   display: flex;
   gap: 8px;
   min-height: 34px;
+  overflow: hidden;
   padding: 8px var(--gap);
   border-bottom: 1px dotted var(--green-dim);
   color: var(--green-soft);
+}
+
+#typed-command {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .prompt,
@@ -287,6 +316,17 @@ input {
   padding: 24px 38px 22px;
 }
 
+.quote-output,
+.tag-fieldset {
+  scrollbar-width: none;
+}
+
+.quote-output::-webkit-scrollbar,
+.tag-fieldset::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .quote-output::before,
 .quote-output::after {
   content: "";
@@ -301,7 +341,7 @@ input {
   color: var(--green);
   font-size: var(--font-big);
   font-weight: 700;
-  line-height: 1.24;
+  line-height: 1.32;
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-shadow:
@@ -354,7 +394,7 @@ input {
   padding-top: 10px;
   border-top: 1px dotted var(--green-dim);
   color: var(--amber);
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .meta-list {
@@ -362,6 +402,7 @@ input {
   gap: 0;
   margin: 0;
   border-top: 1px dotted var(--green-dim);
+  line-height: 1.35;
 }
 
 .meta-list div {
@@ -402,18 +443,19 @@ input {
   min-width: 0;
   min-height: 0;
   margin: 0;
-  padding: var(--gap);
+  padding: 0 var(--gap) var(--gap);
   border: 0;
 }
 
 .toggle-panel[open] {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: 34px minmax(0, 1fr);
   overflow: hidden;
 }
 
 .toggle-panel:not([open]) {
   flex: 0 0 auto;
+  padding-bottom: 0;
 }
 
 .toggle-panel summary {
@@ -421,8 +463,8 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  min-height: 28px;
-  padding: 4px 0 8px;
+  height: 34px;
+  padding: 8px 0;
   cursor: pointer;
   font-weight: 700;
   list-style: none;
@@ -438,7 +480,7 @@ input {
 }
 
 .toggle-panel:not([open]) summary {
-  padding-bottom: 0;
+  padding-bottom: 8px;
 }
 
 .toggle-panel:not([open]) summary::after {
@@ -539,6 +581,7 @@ input {
   flex: 0 0 auto;
   grid-template-columns: 1fr 1fr;
   gap: 7px;
+  margin-top: auto;
   padding: var(--gap);
   border-top: 1px dotted var(--green-dim);
 }
@@ -593,66 +636,77 @@ input {
 @media (max-width: 700px) {
   html,
   body {
-    height: auto;
-    overflow: auto;
+    height: 100%;
+    overflow: hidden;
     min-width: var(--min-app-width);
   }
 
   .terminal-shell {
-    height: auto;
-    min-height: 100vh;
-    min-height: 100dvh;
-    overflow: visible;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
     padding: 6px;
   }
 
   .screen {
-    height: auto;
-    min-height: calc(100vh - 12px);
-    min-height: calc(100dvh - 12px);
-    overflow: visible;
+    height: calc(100vh - 12px);
+    height: calc(100dvh - 12px);
+    min-height: 0;
+    overflow: hidden;
     padding: 10px;
   }
 
   .terminal-header {
-    min-height: 0;
-    align-items: flex-start;
-    flex-direction: row;
-    gap: 12px;
-  }
-
-  .terminal-stats {
-    flex: 0 0 auto;
-    gap: 4px;
-    justify-content: flex-start;
+    min-height: 38px;
+    align-items: end;
+    column-gap: 12px;
+    row-gap: 4px;
   }
 
   .terminal-grid {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    min-height: auto;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .quote-output {
-    --font-big: 2rem;
-    --quote-font-long: 1.8rem;
-    --quote-font-very-long: 1.6rem;
+    --font-big: 1.72rem;
+    --quote-font-long: 1.55rem;
+    --quote-font-very-long: 1.38rem;
+    display: block;
     overflow-y: auto;
     padding: 16px;
   }
 
+  .quote-output::before,
+  .quote-output::after {
+    display: none;
+  }
+
   .quote-text {
-    line-height: 1.22;
+    margin-bottom: 10px;
+  }
+
+  .startup-message {
+    font-size: var(--quote-font-long);
+  }
+
+  .original-text {
+    margin-bottom: 10px;
   }
 
   .control-window {
+    flex: 0 0 auto;
     min-height: 0;
-    overflow: visible;
+    max-height: min(44dvh, 280px);
+    overflow: hidden;
   }
 
   .terminal-line {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .tag-grid {
@@ -668,10 +722,6 @@ input {
     height: 32px;
   }
 
-  .tag-fieldset {
-    height: auto;
-  }
-
   .button-bank {
     gap: 8px;
   }
@@ -679,15 +729,10 @@ input {
 
 @media (max-width: 430px) {
   .quote-output {
-    --font-big: 1.75rem;
-    --quote-font-long: 1.6rem;
-    --quote-font-very-long: 1.45rem;
+    --font-big: 1.55rem;
+    --quote-font-long: 1.4rem;
+    --quote-font-very-long: 1.25rem;
     padding: 14px;
-  }
-
-  .original-text,
-  .meta-list {
-    line-height: 1.35;
   }
 
   .meta-list div {

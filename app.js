@@ -313,8 +313,6 @@ function setWaitingScreen() {
   updateCommand();
 }
 
-
-
 function stopSpeechOutput() {
   state.readSessionId += 1;
   stopReadHighlightTimer();
@@ -341,6 +339,7 @@ function typeText(text, onComplete) {
 
     if (index > text.length) {
       window.clearInterval(state.typingTimer);
+      state.typingTimer = null;
       elements.terminalStatus.textContent = "완료";
       onComplete?.();
     }
@@ -476,6 +475,8 @@ function waitForVoices() {
       window.clearTimeout(timeout);
       if ("removeEventListener" in speechSynthesis) {
         speechSynthesis.removeEventListener("voiceschanged", handleVoicesChanged);
+      } else {
+        speechSynthesis.onvoiceschanged = null;
       }
 
       refreshVoiceCache();
@@ -535,7 +536,6 @@ function chooseVoiceForLanguage(voices, language) {
     null
   );
 }
-
 
 async function speakQuote(mode) {
   await unlockAudio();

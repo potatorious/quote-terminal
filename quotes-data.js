@@ -360,21 +360,6 @@ window.QUOTE_DATA = {
     {
       "authorId": "marcus",
       "ko": {
-        "quote": "좋은 사람이 어떠해야 하는지 논하지 말고 그런 사람이 되어라.",
-        "source": "명상록",
-      },
-      "original": {
-        "quote": "Waste no more time arguing what a good man should be. Be one.",
-        "source": "Meditations",
-      },
-      "tags": [
-        "삶",
-        "시작"
-      ]
-    },
-    {
-      "authorId": "marcus",
-      "ko": {
         "quote": "장애물은 길이 된다.",
         "source": "명상록",
       },
@@ -475,21 +460,6 @@ window.QUOTE_DATA = {
       "tags": [
         "철학",
         "회복"
-      ]
-    },
-    {
-      "authorId": "epictetus",
-      "ko": {
-        "quote": "먼저 네가 무엇이 되고 싶은지 말하고, 그 다음 해야 할 일을 하라.",
-        "source": "담화록",
-      },
-      "original": {
-        "quote": "First say to yourself what you would be; and then do what you have to do.",
-        "source": "Discourses",
-      },
-      "tags": [
-        "시작",
-        "삶"
       ]
     },
     {
@@ -1780,21 +1750,6 @@ window.QUOTE_DATA = {
       "tags": [
         "진실",
         "지혜"
-      ]
-    },
-    {
-      "authorId": "pascal",
-      "ko": {
-        "quote": "인간은 갈대일 뿐이지만 생각하는 갈대다.",
-        "source": "팡세",
-      },
-      "original": {
-        "quote": "Humanity is but a reed, the most feeble thing in nature, but a thinking reed.",
-        "source": "Pensées",
-      },
-      "tags": [
-        "철학",
-        "삶"
       ]
     },
     {
@@ -4920,21 +4875,6 @@ window.QUOTE_DATA = {
     {
       "authorId": "bacon",
       "ko": {
-        "quote": "복수를 생각하는 사람은 자기 상처를 계속 새롭게 한다.",
-        "source": "수상록: 복수에 관하여",
-      },
-      "original": {
-        "quote": "He that studieth revenge keeps his own wounds green.",
-        "source": "Essays, Of Revenge",
-      },
-      "tags": [
-        "회복",
-        "지혜"
-      ]
-    },
-    {
-      "authorId": "bacon",
-      "ko": {
         "quote": "번영은 악덕을 잘 드러내고, 역경은 덕을 잘 드러낸다.",
         "source": "수상록: 역경에 관하여",
       },
@@ -5055,7 +4995,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "thoreau",
       "ko": {
-        "quote": "나는 내 삶에 넓은 여백이 있기를 좋아한다.",
+        "quote": "나는 내 삶에 넓은 여백을 사랑한다.",
         "source": "월든",
       },
       "original": {
@@ -5265,7 +5205,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "shakespeare",
       "ko": {
-        "quote": "용기의 더 나은 부분은 신중함이다.",
+        "quote": "용기의 핵심은 신중함이다.",
         "source": "헨리 4세 1부",
       },
       "original": {
@@ -5370,7 +5310,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "laozi",
       "ko": {
-        "quote": "큰 완성은 모자란 듯해도 그 쓰임은 다하지 않는다.",
+        "quote": "가장 완벽한 것은 모자란 듯해도 그 쓰임은 다하지 않는다.",
         "source": "도덕경 45장",
       },
       "original": {
@@ -5610,7 +5550,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "aristotle",
       "ko": {
-        "quote": "인간의 좋음은 덕에 따른 영혼의 활동이다.",
+        "quote": "인간의 최고선은 덕에 따른 영혼의 활동이다.",
         "source": "니코마코스 윤리학 1권",
       },
       "original": {
@@ -5670,7 +5610,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "cicero",
       "ko": {
-        "quote": "운명의 변화는 친구의 믿음직함을 시험한다.",
+        "quote": "운명의 변화는 친구의 진실됨을 시험한다.",
         "source": "우정론",
       },
       "original": {
@@ -6269,7 +6209,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "socrates",
       "ko": {
-        "quote": "가장 부유한 사람은 가장 적은 것에 만족하는 사람이다.",
+        "quote": "가장 부유한 사람은 적은 것에 만족하는 사람이다.",
         "source": "전승 인용",
       },
       "original": {
@@ -6299,7 +6239,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "plato",
       "ko": {
-        "quote": "음악과 리듬은 영혼의 은밀한 곳으로 들어간다.",
+        "quote": "음악과 리듬은 영혼의 가장 깊은 곳으로 스며든다.",
         "source": "국가 전승",
       },
       "original": {
@@ -6779,7 +6719,7 @@ window.QUOTE_DATA = {
     {
       "authorId": "pascal",
       "ko": {
-        "quote": "어린 시절에 처음 겪은 일은 오래 남는 인상을 남긴다.",
+        "quote": "어린 시절에 처음 겪은 일은 오랜 인상을 남긴다.",
         "source": "팡세 전승",
       },
       "original": {
