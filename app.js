@@ -192,7 +192,19 @@ async function unlockAudio() {
   }
 
   if (audio.state === "suspended") {
-    await audio.resume();
+    const resumeAudio = audio
+      .resume()
+      .then(() => {
+        state.audioReady = audio.state === "running";
+      })
+      .catch(() => {
+        state.audioReady = false;
+      });
+
+    await Promise.race([
+      resumeAudio,
+      new Promise((resolve) => window.setTimeout(resolve, 250))
+    ]);
   }
 
   state.audioReady = audio.state === "running";
